@@ -70,4 +70,4 @@ with add_tab:
     st.header("Dodaj swoje opowiadanie")
     
     # Opcja wklejania tekstu
-    st.session_state["saved_stories"][0] = st.text_area("Wprowadź treść opowiadania 1", value=st.session_state["saved_stor
+ st.session_state["saved_stories"][0] = st.text_area("Wprowadź treść opowiadania 1", value=st.session_state["saved_stories"][0], height=100)
