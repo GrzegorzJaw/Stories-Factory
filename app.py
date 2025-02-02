@@ -3,9 +3,8 @@ from dotenv import dotenv_values
 import openai
 from PyPDF2 import PdfReader
 import docx
-import io
 
-# Wczytanie zmiennych środowiskowych
+# Wczytanie zmiennych środowiskowych z pliku .env
 env = dotenv_values(".env")
 
 # Funkcja do generowania tekstu za pomocą OpenAI
@@ -13,14 +12,17 @@ def generate_text(prompt, max_tokens):
     """Generuje tekst na podstawie podanego promptu."""
     try:
         res = openai.Completion.create(
-            model="gpt-4",  # Upewnij się, że używasz poprawnego modelu, np. gpt-4
+            model="gpt-4",
             temperature=0.7,
             max_tokens=max_tokens,
             prompt=prompt
         )
-        return res.choices[0].text.strip()
+        if res.choices:
+            return res.choices[0].text.strip()
+        else:
+            return "Brak odpowiedzi z OpenAI."
     except Exception as e:
-        return f"Błąd: {str(e)}"
+        return f"Błąd podczas generowania tekstu: {str(e)}"
 
 # Funkcja do odczytu tekstu z plików
 def extract_text_from_file(uploaded_file):
@@ -37,20 +39,18 @@ def extract_text_from_file(uploaded_file):
 # Konfiguracja strony w Streamlit
 st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="centered")
 
-
-# OpenAI API key protection
+# Sprawdzenie, czy klucz API jest dostępny
 if "openai_api_key" not in st.session_state:
-    if env.get("OPENAI_API_KEY"):
+    # Najpierw próba pobrania klucza z pliku .env
+    if "OPENAI_API_KEY" in env:
         st.session_state["openai_api_key"] = env["OPENAI_API_KEY"]
     else:
-        st.info("Dodaj swój klucz API OpenAI, aby móc korzystać z tej aplikacji.")
-        st.session_state["openai_api_key"] = st.sidebar.text_input("Klucz API", type="password")
-        if st.session_state["openai_api_key"]:
-            openai.api_key = st.session_state["openai_api_key"]
+        st.session_state["openai_api_key"] = st.sidebar.text_input("Dodaj swój klucz API OpenAI", type="password")
 
+# Sprawdzenie, czy klucz API jest ustawiony
 if not st.session_state.get("openai_api_key"):
+    st.warning("Aby korzystać z aplikacji, musisz dodać swój klucz API OpenAI.")
     st.stop()
-
 
 # Inicjalizacja klienta OpenAI
 openai.api_key = st.session_state["openai_api_key"]
@@ -84,6 +84,8 @@ with add_tab:
             extracted_text = extract_text_from_file(file)
             if extracted_text:
                 file_texts.append(extracted_text)
+            else:
+                st.warning(f"Plik {file.name} nie zawiera tekstu lub nie może być odczytany.")
     
     # Wybór długości generowanego tekstu
     st.subheader("Wybierz budżet na generowanie tekstu")
