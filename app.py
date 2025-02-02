@@ -1,6 +1,6 @@
 import streamlit as st
 from dotenv import dotenv_values
-from openai import OpenAI
+import openai
 from PyPDF2 import PdfReader
 import docx
 import io
@@ -8,24 +8,21 @@ import io
 # Wczytanie zmiennych środowiskowych
 env = dotenv_values(".env")
 
-# Inicjalizacja klienta OpenAI
-openai_client = OpenAI(api_key=env.get("OPENAI_API_KEY"))
-
+# Funkcja do generowania tekstu za pomocą OpenAI
 def generate_text(prompt, max_tokens):
     """Generuje tekst na podstawie podanego promptu."""
     try:
-        res = openai_client.chat.completions.create(
-            model="gpt-4o",
+        res = openai.Completion.create(
+            model="gpt-4",  # Upewnij się, że używasz poprawnego modelu, np. gpt-4
             temperature=0.7,
             max_tokens=max_tokens,
-            messages=[{"role": "user", "content": prompt}],
+            prompt=prompt
         )
-        return res.choices[0].message.content.strip()
+        return res.choices[0].text.strip()
     except Exception as e:
         return f"Błąd: {str(e)}"
 
 # Funkcja do odczytu tekstu z plików
-
 def extract_text_from_file(uploaded_file):
     if uploaded_file.type == "text/plain":
         return uploaded_file.read().decode("utf-8")
@@ -46,17 +43,23 @@ if "openai_api_key" not in st.session_state:
         st.session_state["openai_api_key"] = env["OPENAI_API_KEY"]
     else:
         st.info("Dodaj swój klucz API OpenAI, aby móc korzystać z tej aplikacji.")
-        st.session_state["openai_api_key"] = st.text_input("Klucz API", type="password")
+        st.session_state["openai_api_key"] = st.sidebar.text_input("Klucz API", type="password")
         if st.session_state["openai_api_key"]:
+            openai.api_key = st.session_state["openai_api_key"]
+            st.session_state["openai_api_key"] = openai.api_key
             st.rerun()
 
 if not st.session_state.get("openai_api_key"):
     st.stop()
 
+# Inicjalizacja klienta OpenAI
+openai.api_key = st.session_state["openai_api_key"]
+
+# Tytuł aplikacji
 st.title("Linia produkcyjna opowieści niedokończonych")
 
 # Zakładki
-add_tab, search_tab = st.tabs([
+add_tab, search_tab = st.tabs([ 
     "Dodaj opowieści, które mają być dokończone", 
     "Dodaj opowieści, które Ciebie inspirują"
 ])
