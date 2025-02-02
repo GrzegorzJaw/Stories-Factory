@@ -46,9 +46,12 @@ if "openai_api_key" not in st.session_state:
         st.session_state["openai_api_key"] = st.sidebar.text_input("Klucz API", type="password")
         if st.session_state["openai_api_key"]:
             openai.api_key = st.session_state["openai_api_key"]
+            st.experimental_rerun()
 
 if not st.session_state.get("openai_api_key"):
     st.stop()
+
+
 
 # Inicjalizacja klienta OpenAI
 openai.api_key = st.session_state["openai_api_key"]
