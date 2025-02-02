@@ -1,9 +1,6 @@
 streamlit
-dotenv 
-dotenv_values
-openai 
-OpenAI
-PyPDF2 
-PdfReader
-docx
-io
+python-dotenv
+openai
+PyPDF2
+python-docx
+
