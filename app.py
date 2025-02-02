@@ -37,6 +37,7 @@ def extract_text_from_file(uploaded_file):
 # Konfiguracja strony w Streamlit
 st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="centered")
 
+
 # OpenAI API key protection
 if "openai_api_key" not in st.session_state:
     if env.get("OPENAI_API_KEY"):
@@ -46,11 +47,9 @@ if "openai_api_key" not in st.session_state:
         st.session_state["openai_api_key"] = st.sidebar.text_input("Klucz API", type="password")
         if st.session_state["openai_api_key"]:
             openai.api_key = st.session_state["openai_api_key"]
-            st.experimental_rerun()
 
 if not st.session_state.get("openai_api_key"):
     st.stop()
-
 
 
 # Inicjalizacja klienta OpenAI
