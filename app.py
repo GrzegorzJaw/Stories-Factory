@@ -9,18 +9,15 @@ env = dotenv_values(".env")
 
 # Funkcja do generowania tekstu za pomocą OpenAI
 def generate_text(prompt, max_tokens):
-    """Generuje tekst na podstawie podanego promptu."""
+    """Generates text using OpenAI's new API interface."""
     try:
-        res = openai.Completion.create(
-            model="gpt-4",
-            temperature=0.7,
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
             max_tokens=max_tokens,
-            prompt=prompt
+            temperature=0.7
         )
-        if res.choices:
-            return res.choices[0].text.strip()
-        else:
-            return "Brak odpowiedzi z OpenAI."
+        return response.choices[0]["message"]["content"].strip()  # Poprawienie dostępu
     except Exception as e:
         return f"Błąd podczas generowania tekstu: {str(e)}"
 
@@ -42,15 +39,15 @@ st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="c
 # Sprawdzenie, czy klucz API jest dostępny
 if "openai_api_key" not in st.session_state:
     # Najpierw próba pobrania klucza z pliku .env
-    if "OPENAI_API_KEY" in env:
-        st.session_state["openai_api_key"] = env["OPENAI_API_KEY"]
-    else:
-        st.session_state["openai_api_key"] = st.sidebar.text_input("Dodaj swój klucz API OpenAI", type="password")
+    st.session_state["openai_api_key"] = env.get("OPENAI_API_KEY", "")
 
-# Sprawdzenie, czy klucz API jest ustawiony
+# Zabezpieczenie w przypadku braku klucza
 if not st.session_state.get("openai_api_key"):
-    st.warning("Aby korzystać z aplikacji, musisz dodać swój klucz API OpenAI.")
-    st.stop()
+    # Komponent do wprowadzania klucza API
+    st.session_state["openai_api_key"] = st.sidebar.text_input("Dodaj swój klucz API OpenAI", type="password")
+    if not st.session_state.get("openai_api_key"):
+        st.warning("Aby korzystać z aplikacji, musisz dodać swój klucz API OpenAI.")
+        st.stop()
 
 # Inicjalizacja klienta OpenAI
 openai.api_key = st.session_state["openai_api_key"]
@@ -59,8 +56,8 @@ openai.api_key = st.session_state["openai_api_key"]
 st.title("Linia produkcyjna opowieści niedokończonych")
 
 # Zakładki
-add_tab, search_tab = st.tabs([ 
-    "Dodaj opowieści, które mają być dokończone", 
+add_tab, search_tab = st.tabs([
+    "Dodaj opowieści, które mają być dokończone",
     "Dodaj opowieści, które Ciebie inspirują"
 ])
 
@@ -70,12 +67,12 @@ if "saved_stories" not in st.session_state:
 
 with add_tab:
     st.header("Dodaj swoje opowiadanie")
-    
+
     # Opcja wklejania tekstu
     st.session_state["saved_stories"][0] = st.text_area("Wprowadź treść opowiadania 1", value=st.session_state["saved_stories"][0], height=100)
     st.session_state["saved_stories"][1] = st.text_area("Wprowadź treść opowiadania 2", value=st.session_state["saved_stories"][1], height=100)
     st.session_state["saved_stories"][2] = st.text_area("Wprowadź treść opowiadania 3", value=st.session_state["saved_stories"][2], height=100)
-    
+
     # Opcja wrzucania plików
     uploaded_files = st.file_uploader("Lub dodaj pliki z tekstami (max 3)", type=["txt", "pdf", "doc", "docx"], accept_multiple_files=True)
     file_texts = []
@@ -97,7 +94,7 @@ with add_tab:
         max_tokens = 2000
     else:
         max_tokens = 500
-    
+
     # Generowanie kontynuacji
     if st.button("Generuj kontynuację") and (any(st.session_state["saved_stories"]) or file_texts):
         all_texts = [t for t in st.session_state["saved_stories"] if t] + file_texts
