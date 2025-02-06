@@ -11,7 +11,6 @@ env = dotenv_values(".env")
 # Function to generate text using OpenAI with delay
 def generate_text(prompt, max_tokens):
     try:
-        # Display message during the delay with markdown for styling
         processing_message = st.empty()  # Create an empty slot for the message
         with st.spinner("Processing..."):
             processing_message.markdown(
@@ -35,7 +34,6 @@ def generate_text(prompt, max_tokens):
         
         print(res)  # Debug: print the entire response to inspect structure and possible errors
         
-        # Safely accessing the response in case of variations in the API response
         if res and "choices" in res and len(res.choices) > 0:
             return res.choices[0].message.content
         else:
@@ -44,13 +42,8 @@ def generate_text(prompt, max_tokens):
         st.error(f"An error occurred: {e}")
         return None
     finally:
-        # Clear the processing message after completion
         processing_message.empty()
 
-
-
-
-# Function to read text from files
 def extract_text_from_file(uploaded_file):
     if uploaded_file.type == "text/plain":
         return uploaded_file.read().decode("utf-8")
@@ -68,44 +61,36 @@ def extract_text_from_file(uploaded_file):
 # Streamlit page configuration
 st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="centered")
 
-# Check if API key is available
 if "openai_api_key" not in st.session_state:
-    # First, try to get the key from .env file
     st.session_state["openai_api_key"] = env.get("OPENAI_API_KEY", "")
 
-# Safeguard if no API key present
 if not st.session_state.get("openai_api_key"):
-    # Component for entering OpenAI API key
     st.session_state["openai_api_key"] = st.sidebar.text_input("Enter your OpenAI API Key", type="password")
     if not st.session_state.get("openai_api_key"):
         st.warning("You need to add your OpenAI API key to use this app.")
         st.stop()
 
-# Initialize OpenAI client
 openai.api_key = st.session_state["openai_api_key"]
 
-# Application title
 st.title("Unfinished Story Production Line")
 
-# Tabs
 add_tab, search_tab = st.tabs([
     "Add Stories to be Completed",
     "Add Stories That Inspire You"
 ])
 
-# Initialize session state storage
 if "saved_stories" not in st.session_state:
     st.session_state["saved_stories"] = ["", "", ""]
 
 with add_tab:
     st.header("Add Your Story")
 
-    # Text entry option
     st.session_state["saved_stories"][0] = st.text_area("Enter Story Content 1", value=st.session_state["saved_stories"][0], height=100)
     st.session_state["saved_stories"][1] = st.text_area("Enter Story Content 2", value=st.session_state["saved_stories"][1], height=100)
     st.session_state["saved_stories"][2] = st.text_area("Enter Story Content 3", value=st.session_state["saved_stories"][2], height=100)
 
-    # File upload option
+    user_description = st.text_input("Please write what kind of text you would like to create.", placeholder="e.g., I want a thrilling detective story")
+
     uploaded_files = st.file_uploader("Or Add Files with Texts (max 3)", type=["txt", "pdf", "doc", "docx"], accept_multiple_files=True)
     file_texts = []
     if uploaded_files:
@@ -115,23 +100,80 @@ with add_tab:
                 file_texts.append(extracted_text)
             else:
                 st.warning(f"File {file.name} contains no text or cannot be read.")
-    
-    # Token budget selection
+
+    continuation_type = st.radio("Choose a continuation option:", [
+        "Continuation in the form of a short story",
+        "Continuation in the form of a novel chapter",
+        "A new piece, not a continuation, based on the provided content."
+    ])
+
+    st.text("GOAL: Describe the aims of your story.")
+
+    # Setting initial goal percentages
+    if "goals" not in st.session_state:
+        st.session_state.goals = {
+            "Ideas and Reflections": 20,
+            "Entertainment": 20,
+            "Education": 20,
+            "Building Emotional Experience": 20
+        }
+
+    def adjust_slider(new_value, changed_key):
+        total = new_value + sum(v for k, v in st.session_state.goals.items() if k != changed_key)
+        diff = 100 - total
+        if diff != 0:
+            for k in st.session_state.goals.keys():
+                if k != changed_key:
+                    st.session_state.goals[k] += diff // (len(st.session_state.goals) - 1)
+        return new_value
+
+    # Sliders for goals
+    st.session_state.goals["Ideas and Reflections"] = st.slider(
+        "Ideas and Reflections", 0, 100, st.session_state.goals["Ideas and Reflections"],
+        on_change=adjust_slider, args=(st.session_state.goals["Ideas and Reflections"], "Ideas and Reflections")
+    )
+    st.session_state.goals["Entertainment"] = st.slider(
+        "Entertainment", 0, 100, st.session_state.goals["Entertainment"],
+        on_change=adjust_slider, args=(st.session_state.goals["Entertainment"], "Entertainment")
+    )
+    st.session_state.goals["Education"] = st.slider(
+        "Education", 0, 100, st.session_state.goals["Education"],
+        on_change=adjust_slider, args=(st.session_state.goals["Education"], "Education")
+    )
+    st.session_state.goals["Building Emotional Experience"] = st.slider(
+        "Building Emotional Experience", 0, 100, st.session_state.goals["Building Emotional Experience"],
+        on_change=adjust_slider, args=(st.session_state.goals["Building Emotional Experience"], "Building Emotional Experience")
+    )
+
+    if sum(st.session_state.goals.values()) != 100:
+        st.warning("The total percentage should be exactly 100%.")
+
     st.subheader("Select Token Budget for Generation")
-    max_tokens = 500  # Default token budget
+    max_tokens = 5000  # Default token budget
     if st.button("Up to 5 PLN"):
-        max_tokens = 2500
-    elif st.button("Up to 10 PLN"):
         max_tokens = 5000
+    elif st.button("Up to 10 PLN"):
+        max_tokens = 25000
     elif st.button("Up to 20 PLN"):
         max_tokens = 10000
 
-    # Generate story continuation
-    if st.button("Generate Continuation") and (any(st.session_state["saved_stories"]) or file_texts):
+    if st.button("Generate") and (any(st.session_state["saved_stories"]) or file_texts):
         all_texts = [t for t in st.session_state["saved_stories"] if t] + file_texts
         for i, story in enumerate(all_texts[:3]):
-            result = generate_text(f"Continue this story: {story}", max_tokens)
-            st.subheader(f"Generated Continuation {i+1}:")
+            if continuation_type == "Continuation in the form of a short story":
+                prompt = f"Write a short story continuation for the following content: {story}"
+            elif continuation_type == "Continuation in the form of a novel chapter":
+                prompt = f"Write the next chapter as part of a novel for the following content: {story}"
+            elif continuation_type == "A new piece, not a continuation, based on the provided content.":
+                prompt = f"Create a new story based on the world and facts in the following content: {story}"
+
+            prompt += f"\n\nUser description: {user_description}"
+
+            goals_text = "\n".join([f"{key}: {value}%" for key, value in st.session_state.goals.items()])
+            prompt += f"\n\nStory Goals:\n{goals_text}"
+
+            result = generate_text(prompt, max_tokens)
+            st.subheader(f"Generated {continuation_type} {i+1}:")
             st.write(result)
 
 with search_tab:
