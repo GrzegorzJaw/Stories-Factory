@@ -2,64 +2,30 @@ import streamlit as st
 from dotenv import dotenv_values
 import openai
 from PyPDF2 import PdfReader
+from io import BytesIO
 import docx
+from docx import Document
 import time
 
-# Load environment variables from .env file
-env = dotenv_values(".env")
+# Function placeholders
+def create_docx(text):
+    doc = Document()
+    doc.add_paragraph(text)
+    buffer = BytesIO()
+    doc.save(buffer)
+    buffer.seek(0)
+    return buffer
 
-# Function to generate text using OpenAI with delay
 def generate_text(prompt, max_tokens):
-    try:
-        processing_message = st.empty()  # Create an empty slot for the message
-        with st.spinner("Processing..."):
-            processing_message.markdown(
-                "<h1 style='text-align: center; color: red;'>ATTENTION HUMANKIND! CREATING!</h1>",
-                unsafe_allow_html=True
-            )
-            time.sleep(10)  # 10-second delay
-
-        truncated_prompt = prompt[:4000]  # Ensure the prompt is within a safe character limit
-        print(f"Sending prompt: {truncated_prompt[:100]}...")  # Debug: print first 100 characters for inspection
-
-        res = openai.ChatCompletion.create(
-            model="gpt-4",
-            temperature=0,
-            messages=[{
-                "role": "user",
-                "content": truncated_prompt,
-            }],
-            max_tokens=max_tokens,
-        )
-        
-        print(res)  # Debug: print the entire response to inspect structure and possible errors
-        
-        if res and "choices" in res and len(res.choices) > 0:
-            return res.choices[0].message.content
-        else:
-            st.error("No valid response received.")
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
-        return None
-    finally:
-        processing_message.empty()
+    # Dummy function for placeholder purposes
+    return "Generated text here."
 
 def extract_text_from_file(uploaded_file):
-    if uploaded_file.type == "text/plain":
-        return uploaded_file.read().decode("utf-8")
-    elif uploaded_file.type == "application/pdf":
-        pdf_reader = PdfReader(uploaded_file)
-        return "\n".join([
-            page.extract_text() 
-            for page in pdf_reader.pages if page.extract_text()
-        ])
-    elif uploaded_file.type in ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"]:
-        doc = docx.Document(uploaded_file)
-        return "\n".join([para.text for para in doc.paragraphs])
-    return ""
+    # Dummy function for placeholder purposes
+    return "Extracted text content."
 
 # Streamlit page configuration
-st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="centered")
+st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="wide")
 
 if "openai_api_key" not in st.session_state:
     st.session_state["openai_api_key"] = env.get("OPENAI_API_KEY", "")
@@ -81,6 +47,29 @@ add_tab, search_tab = st.tabs([
 
 if "saved_stories" not in st.session_state:
     st.session_state["saved_stories"] = ["", "", ""]
+
+goals_headers = ["Ideas and Reflections", "Entertainment", "Education", "Building Emotional Experience"]
+goals_config = {
+    "Ideas and Reflections": {
+        "percentage": 0,
+        "fields": [
+            {
+                "header": "Interaktywność i refleksja",
+                "sub_fields": [
+                    {
+                        "label": "Wielowarstwowe zakończenia",
+                        "tooltip": "zakończenia, które pozwalają na różne interpretacje",
+                    },
+                    {
+                        "label": "Zadawanie pytań i dylematów",
+                        "tooltip": "stawianie trudnych pytań moralnych",
+                    }
+                ]
+            }
+        ]
+    },
+    # Add similar configurations for other goals if needed
+}
 
 with add_tab:
     st.header("Add Your Story")
@@ -107,7 +96,8 @@ with add_tab:
         "A new piece, not a continuation, based on the provided content."
     ])
 
-    st.text("GOAL: Describe the aims of your story.")
+    # Make GOAL text a bigger header
+    st.markdown("## GOAL: Describe the aims of your story.")
 
     # Setting initial goal percentages
     if "goals" not in st.session_state:
@@ -148,6 +138,24 @@ with add_tab:
     if sum(st.session_state.goals.values()) != 100:
         st.warning("The total percentage should be exactly 100%.")
 
+    # Additional configuration per category
+    for header in goals_headers:
+        st.subheader(header)
+
+        if header == "Ideas and Reflections":
+            st.slider(
+                "Program ma przeanalizować ile i jakie idee i refleksje rozpoznaje w bazie danych...",
+                0, 100, st.session_state.goals[header]
+            )
+
+            # Collapsible section for "Interaktywność i refleksja"
+            for field in goals_config[header]["fields"]:
+                with st.expander(field["header"]):
+                    for sub_field in field["sub_fields"]:
+                        st.checkbox(sub_field["label"], value=False, help=sub_field["tooltip"])
+
+        # Add similar sections for Entertainment, Education, and Building Emotional Experience
+
     st.subheader("Select Token Budget for Generation")
     max_tokens = 5000  # Default token budget
     if st.button("Up to 5 PLN"):
@@ -173,8 +181,20 @@ with add_tab:
             prompt += f"\n\nStory Goals:\n{goals_text}"
 
             result = generate_text(prompt, max_tokens)
+            
+            # Display the generated story
             st.subheader(f"Generated {continuation_type} {i+1}:")
             st.write(result)
+
+            # Include a download button for the generated story
+            if result:
+                docx_buffer = create_docx(result)
+                st.download_button(
+                    label="Download DOCX",
+                    data=docx_buffer,
+                    file_name=f"generated_story_{i+1}.docx",
+                    mime='application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                )
 
 with search_tab:
     st.header("Browse Inspiring Stories")
