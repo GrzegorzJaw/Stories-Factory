@@ -83,7 +83,7 @@ def create_concept_map(input_text):
     
     st.session_state['concept_map'] = graph
 
-def generate_text_based_on_user_input(additional_input, length_option):
+def generate_text_based_on_user_input(generation_choice, additional_input, length_option):
     if 'embeddings' not in st.session_state or 'ner_results' not in st.session_state or 'topic_results' not in st.session_state:
         return "Error: Analysis data not available."
 
@@ -91,19 +91,16 @@ def generate_text_based_on_user_input(additional_input, length_option):
     entities = ', '.join(ent['text'] for ent in st.session_state['ner_results'])
     topics = '; '.join(f"{key}: {', '.join(val)}" for key, val in st.session_state['topic_results'].items())
 
-    # Formulate the base prompt
-    base_prompt = f"Use the following elements to {additional_input.lower()}.\nEntities: {entities}.\nTopics: {topics}."
-
-    # Determine the type of generation based on user input
-    if "dokończ" in additional_input.lower():
-        prompt = f"{base_prompt}\nContinue the given story with a coherent ending."
-    elif "użyj tego samego świata" in additional_input.lower():
-        prompt = f"{base_prompt}\nCreate a new story set in the same world with the existing characters."
+    # Formulate the base prompt based on user choice
+    if generation_choice == "Dokończenie opowieści":
+        prompt = f"Using the provided analysis, continue the given story with a coherent ending. Consider: {additional_input}.\nEntities: {entities}.\nTopics: {topics}."
+    else:
+        prompt = f"Using the provided analysis, create a new story set in the same world with the existing characters. Consider: {additional_input}.\nEntities: {entities}.\nTopics: {topics}."
 
     length_options = {
-        "Krótki, do 2 stron": 1000,
-        "Średni, do 3 stron": 1500,
-        "Długi, do 5 stron": 2500
+        "Krótki, do 2 stron": 500,
+        "Średni, do 3 stron": 1000,
+        "Długi, do 5 stron": 1500
     }
     max_tokens = length_options.get(length_option, 500)
 
@@ -150,16 +147,26 @@ if st.button("Analizuj Tekst") and story_contents:
     st.success("Analiza wątków: zrobione")
 
 st.header("Krok 2: Podaj szczegóły dla nowego tekstu")
+
+# Option to choose between continuing the story or creating a new one
+generation_choice = st.radio("Wybierz typ opowieści:", [
+    "Dokończenie opowieści",
+    "Stworzenie nowej opowieści na podstawie podanego tekstu"
+])
+
+# Allow the user to provide a description of their preferences
+additional_input = st.text_area("Podaj dodatkowe preferencje dla tekstu:", height=100)
+
+# Options for text length
 length_option = st.radio("Wybierz długość nowego tekstu:", [
     "Krótki, do 2 stron",
     "Średni, do 3 stron",
     "Długi, do 5 stron"
 ])
 
-additional_input = st.text_area("Podaj dodatkowe preferencje dla tekstu:", height=100)
-
 if st.button("Generuj Tekst"):
-    generated_text = generate_text_based_on_user_input(additional_input, length_option)
+    # Generate text based on the user's choices and input
+    generated_text = generate_text_based_on_user_input(generation_choice, additional_input, length_option)
 
     st.subheader("Wygenerowany Tekst")
     st.text_area("Rezultat wygenerowanego tekstu", value=generated_text, height=300)
