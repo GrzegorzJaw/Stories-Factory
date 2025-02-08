@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
   <diagram id="EkP2EdsfRNs-9Bj-ghv5" name="Strona-1">
-    <mxGraphModel dx="6160" dy="4406" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#C4C4C4" math="0" shadow="0">
+    <mxGraphModel dx="4419" dy="3226" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" background="#C4C4C4" math="0" shadow="0">
       <root>
         <object label="" id="0">
           <mxCell />
@@ -924,6 +924,21 @@
         </mxCell>
         <mxCell id="IQ4topMmtCrWOs3Za_0L-397" value="&lt;span style=&quot;&quot;&gt;Na bazie tych danych prosimy o określenie co użytkownik chce stworzyć:&lt;/span&gt;" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;shadow=1;labelBorderColor=none;strokeColor=#FFFFFF;fontFamily=Verdana;fontSize=14;fontColor=#333333;fillColor=light-dark(#A9C4EB,var(--ge-dark-color, #121212));" parent="1" vertex="1">
           <mxGeometry x="-2345" y="-1816" width="255" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="G6znebx3o_Y0mTnryhLW-397" value="&lt;font style=&quot;font-size: 19px; color: rgb(255, 0, 0);&quot;&gt;Wrzucony tekst jest analizowany:&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1390" y="-235" width="188.75" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="G6znebx3o_Y0mTnryhLW-398" value="przerabianie tekstu na embedingsy w celu analizy" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1720" y="-227" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6znebx3o_Y0mTnryhLW-399" value="&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Funkcja ner umożliwia rozpoznanie kluczowych elementów w tekście, takich jak imiona, nazwy miejsc czy organizacji, co może być używane do dalszej analizy lub generowania treści.&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1803.5" y="-155" width="284" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6znebx3o_Y0mTnryhLW-400" value="&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Funkcja topic modeling-&amp;nbsp; pozwala określić główne tematy i ich charakterystyczne słowa w analizowanym tekście&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1818" y="-82" width="323" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6znebx3o_Y0mTnryhLW-401" value="&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;Funkcja&amp;nbsp;&lt;span style=&quot;color: rgb(206, 145, 120); background-color: rgb(31, 31, 31); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; white-space: pre;&quot;&gt;concept_map&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;tworzy strukturę graficzną reprezentującą relacje między różnymi elementami tekstu, co może być użyteczne do dalszej analizy semantycznej lub wizualizacji zależności w tekście.&lt;/span&gt;&lt;/p&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-1829" y="-10" width="372" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

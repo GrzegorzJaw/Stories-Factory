@@ -101,9 +101,9 @@ def generate_text_based_on_user_input(additional_input, length_option):
         prompt = f"{base_prompt}\nCreate a new story set in the same world with the existing characters."
 
     length_options = {
-        "Short (up to 1 page)": 500,
-        "Medium (up to 2 pages)": 1000,
-        "Long (up to 3 pages)": 1500
+        "Krótki, do 2 stron": 1000,
+        "Średni, do 3 stron": 1500,
+        "Długi, do 5 stron": 2500
     }
     max_tokens = length_options.get(length_option, 500)
 
@@ -151,9 +151,9 @@ if st.button("Analizuj Tekst") and story_contents:
 
 st.header("Krok 2: Podaj szczegóły dla nowego tekstu")
 length_option = st.radio("Wybierz długość nowego tekstu:", [
-    "Short (up to 1 page)",
-    "Medium (up to 2 pages)",
-    "Long (up to 3 pages)"
+    "Krótki, do 2 stron",
+    "Średni, do 3 stron",
+    "Długi, do 5 stron"
 ])
 
 additional_input = st.text_area("Podaj dodatkowe preferencje dla tekstu:", height=100)
