@@ -11,7 +11,7 @@ import time
 # Załaduj zmienne środowiskowe
 config = dotenv_values(".env")
 
-# Streamlit page configuration
+# Streamlit 
 st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="wide")
 
 # Sprawdź i ustaw klucz OpenAI API
@@ -87,11 +87,11 @@ def generate_text_based_on_user_input(generation_choice, additional_input, lengt
     if 'embeddings' not in st.session_state or 'ner_results' not in st.session_state or 'topic_results' not in st.session_state:
         return "Error: Analysis data not available."
 
-    # Prepare context from the analysis
+    # Przygotowanie tekstu do analizy
     entities = ', '.join(ent['text'] for ent in st.session_state['ner_results'])
     topics = '; '.join(f"{key}: {', '.join(val)}" for key, val in st.session_state['topic_results'].items())
 
-    # Formulate the base prompt based on user choice
+    # Sformuowanie podstawowego promptu użytkownika
     if generation_choice == "Dokończenie opowieści":
         prompt = f"Using the provided analysis, continue the given story with a coherent ending. Consider: {additional_input}.\nEntities: {entities}.\nTopics: {topics}."
     else:
@@ -129,10 +129,10 @@ story_contents = st.text_area("Wprowadź tekst do analizy", height=300)
 if st.button("Analizuj Tekst") and story_contents:
     start_time = time.time()
 
-    # Initial message
+    # 1 informacja "uspokajająca" użytkownika, info że coś się dzieje
     st.info("Analizuję tekst, który mi przekazałeś...")
 
-    # Perform analyses
+    # Pzeprowadzenie analizy tekstu
     analyze_and_store_embeddings(story_contents)
     analyze_text_with_ner(story_contents)
     analyze_text_with_topic_modeling(story_contents)
@@ -140,24 +140,24 @@ if st.button("Analizuj Tekst") and story_contents:
 
     elapsed_time = time.time() - start_time
 
-    # Conditional message based on time elapsed
+    # 2 tekst do użytkownika, gdy analiza trwa dłużej niż 20 sekund
     if elapsed_time > 20:
         st.info("Dużo tego! Poczekaj jeszcze chwilkę...")
 
-    st.success("Analiza wątków: zrobione")
+    st.success("Analiza tekstu wykonana")
 
 st.header("Krok 2: Podaj szczegóły dla nowego tekstu")
 
-# Option to choose between continuing the story or creating a new one
+# 2 główne początkowe opcje. 
 generation_choice = st.radio("Wybierz typ opowieści:", [
     "Dokończenie opowieści",
     "Stworzenie nowej opowieści na podstawie podanego tekstu"
 ])
 
-# Allow the user to provide a description of their preferences
+# Użytkownik dodaje swój opis tego ,co sobie życzy
 additional_input = st.text_area("Podaj dodatkowe preferencje dla tekstu:", height=100)
 
-# Options for text length
+# 3 opcje na długość tekstu finalnego
 length_option = st.radio("Wybierz długość nowego tekstu:", [
     "Krótki, do 2 stron",
     "Średni, do 3 stron",
@@ -165,7 +165,7 @@ length_option = st.radio("Wybierz długość nowego tekstu:", [
 ])
 
 if st.button("Generuj Tekst"):
-    # Generate text based on the user's choices and input
+    # I finalnie generowanie tekstu na podstawie celów użytkownika podanych wcześniej
     generated_text = generate_text_based_on_user_input(generation_choice, additional_input, length_option)
 
     st.subheader("Wygenerowany Tekst")
