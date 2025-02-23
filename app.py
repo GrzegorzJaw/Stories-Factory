@@ -1,22 +1,37 @@
 import streamlit as st
 from dotenv import dotenv_values
 import openai
-import tiktoken
 import spacy
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import networkx as nx
 import time
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+from sklearn.cluster import KMeans
+import random
+import json
+import os
+
+
+# Nazwa modelu
+model_name = 'Lajonbot/LaMini-GPT-774M-19000-steps-polish'
+
+# Pobierz model
+tokenizer = AutoTokenizer.from_pretrained(model_name, padding_side='right')
+tokenizer.pad_token = tokenizer.eos_token
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
 # Załaduj zmienne środowiskowe
 config = dotenv_values(".env")
 
-# Streamlit 
+# Streamlit
 st.set_page_config(page_title="Fabryka Opowieści: Asystent Twórczy", layout="wide")
 
 # Sprawdź i ustaw klucz OpenAI API
 if "openai_api_key" not in st.session_state:
     st.session_state["openai_api_key"] = config.get("OPENAI_API_KEY", "")
+    
 openai.api_key = st.session_state.get("openai_api_key", "")
 
 if not openai.api_key:
@@ -25,38 +40,82 @@ if not openai.api_key:
         st.warning("You need to add your OpenAI API key to use this app.")
         st.stop()
 
-encoding = tiktoken.encoding_for_model("gpt-4")
 nlp = spacy.load("en_core_web_sm")
 
-#przerabianie tekstu na embedingsy w celu analizy
-def analyze_and_store_embeddings(input_text):
-    segment_length = 3000
-    segments = [input_text[i:i + segment_length] for i in range(0, len(input_text), segment_length)]
-    
-    all_embeddings = []
-    
-    for segment in segments:
-        try:
-            response = openai.Embedding.create(
-                model="text-embedding-ada-002",
-                input=segment
-            )
-            embeddings = response['data'][0]['embedding']
-            all_embeddings.append(embeddings)
-        except Exception as e:
-            st.error(f"Error in embedding: {e}")
-            return None
 
-    st.session_state['embeddings'] = all_embeddings
+ANALYSIS_FILE = "analysis.json"  # Ścieżka do pliku zapisu analizy
 
-#Funkcja ner  umożliwia rozpoznanie kluczowych elementów w tekście,
-# takich jak imiona, nazwy miejsc czy organizacji, co może być używane do dalszej analizy lub generowania treści.
+def save_analysis_to_file():
+    """Zapisuje analizę do pliku JSON."""
+    with open(ANALYSIS_FILE, "w", encoding="utf-8") as f:
+        json.dump({
+            "ner_results": st.session_state.get("ner_results", []),
+            "topic_results": st.session_state.get("topic_results", {})
+        }, f, ensure_ascii=False, indent=4)
+
+def load_analysis_from_file():
+    """Wczytuje analizę z pliku JSON, jeśli istnieje."""
+    if os.path.exists(ANALYSIS_FILE):
+        with open(ANALYSIS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            st.session_state["ner_results"] = data.get("ner_results", [])
+            st.session_state["topic_results"] = data.get("topic_results", {})
+
+def delete_analysis_file():
+    """Kasuje zapisany plik analizy."""
+    if os.path.exists(ANALYSIS_FILE):
+        os.remove(ANALYSIS_FILE)
+    st.session_state.pop("ner_results", None)
+    st.session_state.pop("topic_results", None)
+    st.sidebar.success("✅ Analiza została skasowana.")
+
 def analyze_text_with_ner(input_text):
+    st.sidebar.write("🔍 **Rozpoczęto analizę tekstu**")
+    max_chunk_size = 500
+    inputs = tokenizer(input_text, return_tensors="pt", truncation=True, padding=True)
+    tokens = inputs['input_ids'].shape[1]
+    
+    if tokens > max_chunk_size:
+        chunks = [input_text[i:i+max_chunk_size] for i in range(0, len(input_text), max_chunk_size)]
+    else:
+        chunks = [input_text]
+    
+    embeddings = []
+    for i, chunk in enumerate(chunks):
+        st.sidebar.write(f"📌 Analizowanie części {i+1} z {len(chunks)}")
+        inputs = tokenizer(chunk, return_tensors="pt", truncation=True, padding=True)
+        with torch.no_grad():
+            model_output = model(**inputs)
+        embeddings.append(model_output.logits.mean(dim=1).numpy())
+        time.sleep(1)
+    
+    st.session_state['text_embeddings'] = embeddings
+    st.sidebar.write("✅ **Analiza zakończona!**")
+
+    save_analysis_to_file()  # Zapisujemy analizę do pliku
+
+    max_chunk_size = 500  # Limit długości fragmentu tekstu
+    inputs = tokenizer(input_text, return_tensors="pt", truncation=True, padding=True)
+    tokens = inputs['input_ids'].shape[1]
+    
+    if tokens > max_chunk_size:
+        chunks = [input_text[i:i+max_chunk_size] for i in range(0, len(input_text), max_chunk_size)]
+    else:
+        chunks = [input_text]
+    
+    embeddings = []
+    for chunk in chunks:
+        inputs = tokenizer(chunk, return_tensors="pt", truncation=True, padding=True)
+        with torch.no_grad():
+            model_output = model(**inputs)
+        embeddings.append(model_output.logits.mean(dim=1).numpy())
+    
+    st.session_state['text_embeddings'] = embeddings
     doc = nlp(input_text)
     entities_info = [{'text': ent.text, 'label': ent.label_} for ent in doc.ents]
     st.session_state['ner_results'] = entities_info
+    st.sidebar.write("🔍 Rozpoznane encje:", entities_info)  # Debug
 
-#Funkcja topic_modeling  pozwala określić główne tematy i ich charakterystyczne słowa w analizowanym tekście
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
     vectorizer = CountVectorizer(stop_words='english')
     text_data = vectorizer.fit_transform([input_text])
@@ -69,112 +128,136 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
         topics[f"Topic {index+1}"] = [vectorizer.get_feature_names_out()[i] for i in topic.argsort()[-5:]]
     
     st.session_state['topic_results'] = topics
+    st.sidebar.write("📌 Wykryte tematy:", topics)  # Debug
 
-#Funkcja concept map tworzy strukturę graficzną reprezentującą relacje między różnymi elementami tekstu,
-#  co może być użyteczne do dalszej analizy semantycznej lub wizualizacji zależności w tekście.
-def create_concept_map(input_text):
-    doc = nlp(input_text)
-    graph = nx.Graph()
+    save_analysis_to_file()  # Zapisujemy analizę do pliku
 
-    for chunk in doc.noun_chunks:
-        graph.add_node(chunk.text)
-        for entity in doc.ents:
-            graph.add_edge(chunk.text, entity.text)
-    
-    st.session_state['concept_map'] = graph
+def generate_text_based_on_user_input(generation_choice, additional_input, length_option, previous_story=""):
+    # Wczytanie analizy przed generowaniem
+    load_analysis_from_file()
 
-def generate_text_based_on_user_input(generation_choice, additional_input, length_option):
-    if 'embeddings' not in st.session_state or 'ner_results' not in st.session_state or 'topic_results' not in st.session_state:
+    if "ner_results" not in st.session_state or "topic_results" not in st.session_state:
+        st.sidebar.error("❌ Analiza nie jest dostępna. Najpierw przeanalizuj tekst!")
         return "Error: Analysis data not available."
 
-    # Przygotowanie tekstu do analizy
     entities = ', '.join(ent['text'] for ent in st.session_state['ner_results'])
     topics = '; '.join(f"{key}: {', '.join(val)}" for key, val in st.session_state['topic_results'].items())
 
-    # Sformuowanie podstawowego promptu użytkownika
-    if generation_choice == "Dokończenie opowieści":
-        prompt = f"Using the provided analysis, continue the given story with a coherent ending. Consider: {additional_input}.\nEntities: {entities}.\nTopics: {topics}."
-    else:
-        prompt = f"Using the provided analysis, create a new story set in the same world with the existing characters. Consider: {additional_input}.\nEntities: {entities}.\nTopics: {topics}."
+    prompt = f"""
+    Kontynuuj poniższą historię, zachowując jej logiczną spójność, styl i rozwijając istniejące wątki.
+    
+    Historia:
+    {previous_story if previous_story else additional_input}
+    
+    Ważne postacie i elementy fabularne: {entities}
+    Główne tematy i motywy: {topics}
+    
+    Zadbaj o płynność narracji i konsekwencję wydarzeń.
+    """
 
     length_options = {
-        "Krótki, do 2 stron": 500,
-        "Średni, do 3 stron": 1000,
-        "Długi, do 5 stron": 1500
+        "Tekst krótki (maks. 5 PLN)": 700,
+        "Tekst dłuższy (maks. 10 PLN)": 1800,
+        "Tekst długi (maks. 20 PLN)": 3500
     }
-    max_tokens = length_options.get(length_option, 500)
+    max_tokens = length_options.get(length_option, 300)
 
-    try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are a creative assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=max_tokens,
-            temperature=0.7,
-            n=1,
-            stop=None
-        )
-        return response.choices[0].message.content.strip()
-    except Exception as e:
-        return f"An error occurred while generating text: {e}"
+    time.sleep(2)  # Opóźnienie zapobiegające przekroczeniu limitów
+    response = openai.ChatCompletion.create(
+        stop=None,
+        model="gpt-4-turbo",
+        messages=[{"role": "system", "content": "Jesteś asystentem literackim pomagającym tworzyć spójne opowieści."},
+                  {"role": "user", "content": prompt}],
+        max_tokens=max_tokens,
+        temperature=0.9
+    )
 
-# Interfejs użytkownika
-st.title("Fabryka Opowieści: Asystent Twórczy")
+    generated_text = response['choices'][0]['message']['content'].strip()
 
-st.header("Krok 1: Analiza Twojego Tekstu")
-story_contents = st.text_area("Wprowadź tekst do analizy", height=300)
+    if not generated_text:
+        st.warning("Błąd: Wygenerowany tekst jest pusty.")
 
-if st.button("Analizuj Tekst") and story_contents:
-    start_time = time.time()
+    return generated_text
 
-    # 1 informacja "uspokajająca" użytkownika, info że coś się dzieje
-    st.info("Analizuję tekst, który mi przekazałeś...")
+def generation():
+    st.subheader("Jaki jest główny cel opowieści?")
+    goal_options = [
+        "IDEE I REFLEKSJE", "ROZRYWKA", "EDUKACJA", "EMOCJONALNE DOŚWIADCZENIE", "EKSPERYMENTY Z WYMYŚLONYM ŚWIATEM"
+    ]
+    
+    if 'selected_goal' not in st.session_state:
+        st.session_state['selected_goal'] = None
+    
+    col1, col2, col3 = st.columns(3)
+    for i, goal in enumerate(goal_options):
+        with (col1 if i % 3 == 0 else col2 if i % 3 == 1 else col3):
+            if st.button(goal, key=f'goal_{i}'):
+                st.session_state['selected_goal'] = goal
+    
+    if st.session_state['selected_goal']:
+        if st.session_state['selected_goal'] == "IDEE I REFLEKSJE":
+            st.subheader("Wybierz dodatkowe opcje dla IDEI I REFLEKSJI:")
+            option1 = st.checkbox("KONTYNUACJA - Analiza istniejących idei i refleksji oraz rozwijanie ich w nowym tekście")
+            option2 = st.checkbox("WIELOWARSTWOWE ZAKOŃCZENIA - Tworzenie otwartych zakończeń z możliwością interpretacji")
+            option3 = st.checkbox("ZADAWANIE PYTAŃ I DYLEMATY - Inspiracja do refleksji nad trudnymi pytaniami moralnymi")
+            
+            st.session_state['idea_options'] = {
+                "Kontynuacja": option1,
+                "Wielowarstwowe zakończenia": option2,
+                "Zadawanie pytań i dylematy": option3
+            }
+        st.write(f"**Wybrany cel:** {st.session_state['selected_goal']}")
+    if 'generated_story' not in st.session_state:
+        st.session_state['generated_story'] = ""
+    
+    generation_choice = st.selectbox("Wybierz opcję", ["Kontynuuj istniejącą opowieść", "Stwórz nową opowieść"])
+    additional_input = st.text_area("Podaj tekst jako punkt wyjścia:", key='generation_input')
+    length_option = st.selectbox("Wybierz długość", ["Tekst krótki (maks. 5 PLN)", "Tekst dłuższy (maks. 10 PLN)", "Tekst długi (maks. 20 PLN)"])
+    
+    if st.button("Generuj opowieść"):
+        if not additional_input and not st.session_state['generated_story']:
+            st.warning("Podaj tekst jako punkt wyjścia.")
+        else:
+            new_story = generate_text_based_on_user_input(
+                generation_choice, additional_input, length_option, st.session_state['generated_story']
+            )
+            time.sleep(10)
+            st.session_state['generated_story'] += "\n\n" + new_story
+            st.rerun()
+    
+    st.text_area("Wygenerowana opowieść:", st.session_state['generated_story'], height=300)
+    
+    if st.session_state['generated_story']:
+        if st.button("Kontynuuj opowieść"):
+            new_story = generate_text_based_on_user_input(
+                "Kontynuuj istniejącą opowieść", "", length_option, st.session_state['generated_story']
+            )
+            time.sleep(10)
+            st.session_state['generated_story'] += "\n\n" + new_story
+            st.rerun()
 
-    # Pzeprowadzenie analizy tekstu
-    analyze_and_store_embeddings(story_contents)
-    analyze_text_with_ner(story_contents)
-    analyze_text_with_topic_modeling(story_contents)
-    create_concept_map(story_contents)
+def home():
+    st.subheader("Witaj w Fabryce Opowieści: Asystent Twórczy!")
+    st.write("Wybierz funkcję z menu po lewej stronie.")
 
-    elapsed_time = time.time() - start_time
+def analysis():
+    user_text = st.text_area("Podaj tekst do analizy:", key='analysis_text')
+    if st.button("Analizuj tekst"):
+        if not user_text:
+            st.warning("Podaj tekst do analizy.")
+        else:
+            analyze_text_with_ner(user_text)
+            analyze_text_with_topic_modeling(user_text)
 
-    # 2 tekst do użytkownika, gdy analiza trwa dłużej niż 20 sekund
-    if elapsed_time > 20:
-        st.info("Dużo tego! Poczekaj jeszcze chwilkę...")
+def main():
+    page_choice = st.sidebar.selectbox("Wybierz stronę", ["Home", "Analysis", "Generation"], index=0)
+    
+    if page_choice == "Home":
+        home()
+    elif page_choice == "Analysis":
+        analysis()
+    elif page_choice == "Generation":
+        generation()
 
-    st.success("Analiza tekstu wykonana")
-
-st.header("Krok 2: Podaj szczegóły dla nowego tekstu")
-
-# 2 główne początkowe opcje. 
-generation_choice = st.radio("Wybierz typ opowieści:", [
-    "Dokończenie opowieści",
-    "Stworzenie nowej opowieści na podstawie podanego tekstu"
-])
-
-# Użytkownik dodaje swój opis tego ,co sobie życzy
-additional_input = st.text_area("Podaj dodatkowe preferencje dla tekstu:", height=100)
-
-# 3 opcje na długość tekstu finalnego
-length_option = st.radio("Wybierz długość nowego tekstu:", [
-    "Krótki, do 2 stron",
-    "Średni, do 3 stron",
-    "Długi, do 5 stron"
-])
-
-if st.button("Generuj Tekst"):
-    # I finalnie generowanie tekstu na podstawie celów użytkownika podanych wcześniej
-    generated_text = generate_text_based_on_user_input(generation_choice, additional_input, length_option)
-
-    st.subheader("Wygenerowany Tekst")
-    st.text_area("Rezultat wygenerowanego tekstu", value=generated_text, height=300)
-
-    if generated_text:
-        st.download_button(
-            label="Pobierz wygenerowany tekst",
-            data=generated_text.encode(),
-            file_name="generated_text.txt",
-            mime='text/plain'
-        )
+if __name__ == "__main__":
+    main()
