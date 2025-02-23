@@ -13,6 +13,9 @@ import random
 import json
 import os
 
+# Instalacja torch w wersji CPU (bo Streamlit Cloud nie obsługuje GPU)
+os.system("pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu")
+
 
 # Nazwa modelu
 model_name = 'Lajonbot/LaMini-GPT-774M-19000-steps-polish'
