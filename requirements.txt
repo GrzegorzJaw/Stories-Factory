@@ -8,3 +8,4 @@ spacy
 scikit-learn
 networkx
 transformers
+torch
