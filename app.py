@@ -3,12 +3,9 @@ from dotenv import dotenv_values
 import openai
 from io import BytesIO
 import time
-import networkx as nx
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
-import spacy
 import os
-
 
 env = dotenv_values(".env")
 if "openai_api_key" not in st.session_state:
@@ -23,7 +20,6 @@ openai.api_key = st.session_state["openai_api_key"]
 
 st.title("Fabryka Niedokończonych Opowieści")
 
-
 token_cost_per_token = 0.0001
 budget_options = {
     "Tekst do 5 PLN": 25000,
@@ -33,25 +29,18 @@ budget_options = {
 
 def analyze_text_with_ner(input_text):
     try:
-        client = openai.Client(api_key=st.session_state["openai_api_key"])  # Poprawiona inicjalizacja
-
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Identify named entities in the following text."},
+                {"role": "system", "content": "Identify named entities in the text."},
                 {"role": "user", "content": input_text}
-            ],
-            max_tokens=500
+            ]
         )
-
-        entities_info = response.choices[0].message.content.strip().split(', ')  # Poprawiona metoda dostępu do treści
+        entities_info = response.choices[0]['message']['content'].strip().split(', ')
         st.session_state['ner_results'] = entities_info
-
     except Exception as e:
         st.error(f"Failed to analyze text for entities: {e}")
         st.session_state['ner_results'] = []
-
-
 
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
     vectorizer = CountVectorizer(stop_words='english')
@@ -66,24 +55,17 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 
     st.session_state['topic_results'] = topics
 
-import openai
-
 def create_concept_map(input_text):
     try:
-        client = openai.Client(api_key=st.session_state["openai_api_key"])  # Nowa inicjalizacja klienta
-
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
                 {"role": "user", "content": input_text}
-            ],
-            max_tokens=500
+            ]
         )
-
-        concept_relations = response.choices[0].message.content.strip().split('. ')  # Poprawiony dostęp do treści
+        concept_relations = response.choices[0]['message']['content'].strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
-
     except Exception as e:
         st.error(f"Failed to create concept map: {e}")
         st.session_state['concept_relations'] = []
@@ -217,19 +199,16 @@ with col3:
         """
 
         for i in range(9):
-            part = "Wstęp historii" if i < 3 else "Środek historii" if i < 6 else "Zakończenie historii"
-            point_prompt = initial_prompt + f"\nGenerate point for: {part}. This should be concise, within 3 sentences:"
+            part = "Introduction" if i < 3 else "Middle" if i < 6 else "Conclusion"
+            point_prompt = initial_prompt + f"\nGenerate point for: {part}. This should be concise."
 
             response = openai.ChatCompletion.create(
-                model="gpt-4",
-                temperature=0.7,
-                messages=[{"role": "user", "content": point_prompt}],
-                max_tokens=150,
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": point_prompt}]
             )
 
-            point_content = response["choices"][0]["message"]["content"].strip()
+            point_content = response.choices[0]['message']['content'].strip()
             st.session_state["story_outline"].append(point_content)
-
             time.sleep(3)
 
         st.subheader("Plan Kontynuacji opowieści")
@@ -257,8 +236,7 @@ with col3:
             """ + current_plan_points
 
             response = openai.ChatCompletion.create(
-                model="gpt-4",
-                temperature=0.7,
+                model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": story_prompt}],
                 max_tokens=1500
             )
