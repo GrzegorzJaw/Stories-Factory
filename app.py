@@ -33,7 +33,9 @@ budget_options = {
 
 def analyze_text_with_ner(input_text):
     try:
-        response = openai.ChatCompletion.create(
+        client = openai.Client(api_key=st.session_state["openai_api_key"])  # Poprawiona inicjalizacja
+
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Identify named entities in the following text."},
@@ -41,11 +43,14 @@ def analyze_text_with_ner(input_text):
             ],
             max_tokens=500
         )
-        entities_info = response.choices[0].message['content'].strip().split(', ')
+
+        entities_info = response.choices[0].message.content.strip().split(', ')  # Poprawiona metoda dostępu do treści
         st.session_state['ner_results'] = entities_info
+
     except Exception as e:
         st.error(f"Failed to analyze text for entities: {e}")
         st.session_state['ner_results'] = []
+
 
 
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
@@ -61,9 +66,13 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 
     st.session_state['topic_results'] = topics
 
+import openai
+
 def create_concept_map(input_text):
     try:
-        response = openai.ChatCompletion.create(
+        client = openai.Client(api_key=st.session_state["openai_api_key"])  # Nowa inicjalizacja klienta
+
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
@@ -71,11 +80,14 @@ def create_concept_map(input_text):
             ],
             max_tokens=500
         )
-        concept_relations = response.choices[0].message['content'].strip().split('. ')
+
+        concept_relations = response.choices[0].message.content.strip().split('. ')  # Poprawiony dostęp do treści
         st.session_state['concept_relations'] = concept_relations
+
     except Exception as e:
         st.error(f"Failed to create concept map: {e}")
         st.session_state['concept_relations'] = []
+
 
 
 # Precyzyjne usunięcie marginesów bocznych, ale z 1 cm marginesem
