@@ -176,7 +176,7 @@ with col3:
         st.info("Generowanie planu...")
 
         st.session_state["story_outline"] = []
-        ner_summary = ", ".join([ent['text'] for ent in st.session_state.get("ner_results", [])[:5]])
+        ner_summary = ", ".join(st.session_state.get("ner_results", [])[:5])
         topics_summary = ", ".join([", ".join(words) for words in list(st.session_state.get("topic_results", {}).values())[:2]])
         concept_summary = ", ".join(st.session_state.get("concept_relations", [])[:5])
 
