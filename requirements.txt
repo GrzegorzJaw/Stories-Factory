@@ -8,4 +8,5 @@ spacy
 scikit-learn
 networkx
 transformers==4.32.0
-torch
+io
+time

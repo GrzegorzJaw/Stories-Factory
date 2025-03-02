@@ -1,0 +1,2580 @@
+[
+    {
+        "entities": [
+            {
+                "text": "Ekuzji",
+                "label": "geogName"
+            },
+            {
+                "text": "Morza Wspólnego",
+                "label": "geogName"
+            },
+            {
+                "text": "Marchii Południowej",
+                "label": "placeName"
+            },
+            {
+                "text": "Morzem Wspólnym",
+                "label": "geogName"
+            },
+            {
+                "text": "Casati",
+                "label": "geogName"
+            },
+            {
+                "text": "Gdalwen",
+                "label": "geogName"
+            },
+            {
+                "text": "Mahkram",
+                "label": "placeName"
+            },
+            {
+                "text": "Ekuzyjska",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wspólnym",
+                "zbliżaliśmy",
+                "imperium",
+                "niegdyś",
+                "prowincja"
+            ],
+            "Topic 2": [
+                "wspólnym",
+                "wybrzeże",
+                "wówczas",
+                "zbliżaliśmy",
+                "zwana"
+            ],
+            "Topic 3": [
+                "wspólnym",
+                "wybrzeże",
+                "wówczas",
+                "zbliżaliśmy",
+                "zwana"
+            ]
+        },
+        "raw_text": "Wśród bicia południowych dzwonów zbliżaliśmy się do bram starożytnego portu Ekuzji, wonnego kwiatu Morza Wspólnego, stolicy Marchii Południowej wspaniałego Księstwa Mahkry.\n\nEkuzja to olbrzymi port nad Morzem Wspólnym. To starożytne miasto, niegdyś stolica prowincji pradawnego Imperium Casati. Prowincja ta obejmowała niegdyś całe wybrzeże aż do ujścia rzeki Gdalwen. Jej najodleglejszą na północ stanicą wojskową był wówczas mały fort Mahkram...\n \nProwincja Ekuzyjska zwana była w czasach imperium "
+    },
+    {
+        "entities": [
+            {
+                "text": "Marchią Wschodnią",
+                "label": "persName"
+            },
+            {
+                "text": "Ekuzji",
+                "label": "persName"
+            },
+            {
+                "text": "Marchią Wschodnią",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zawładnęły",
+                "zginali",
+                "zupełnie",
+                "marchią",
+                "wschodnią"
+            ],
+            "Topic 2": [
+                "zaakceptować",
+                "zawładnęły",
+                "zginali",
+                "zupełnie",
+                "świata"
+            ],
+            "Topic 3": [
+                "zaakceptować",
+                "zawładnęły",
+                "zginali",
+                "zupełnie",
+                "świata"
+            ]
+        },
+        "raw_text": "Marchią Wschodnią, jako oddalona najbardziej na wschód od centrum cywilizowanego świata. Wieki minęły, ale nazwa pozostała- dla mieszkańców stanowiąc wspomnienie chwalebnej przeszłości. W ciągu lat zginali oni karki przed wieloma prostackimi najeźdźcami- od czasu upadku imperium aby przetrwać należało to zaakceptować. Dzikusy, które zawładnęły (subtelną nie do pojęcia dla nich) społecznością Ekuzji nie rozumiały zupełnie jaką obelgą jest ciągłe nazywanie tego miasta Marchią Wschodnią.\n\nMusiało m"
+    },
+    {
+        "entities": [
+            {
+                "text": "Mahkry",
+                "label": "persName"
+            },
+            {
+                "text": "Marchię Południową",
+                "label": "persName"
+            },
+            {
+                "text": "Ekuzji",
+                "label": "placeName"
+            },
+            {
+                "text": "Gaerety",
+                "label": "placeName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wykład",
+                "władcy",
+                "zgodnie",
+                "zmienili",
+                "zmieniło"
+            ],
+            "Topic 2": [
+                "wykład",
+                "władcy",
+                "zgodnie",
+                "zmienili",
+                "zmieniło"
+            ],
+            "Topic 3": [
+                "wykład",
+                "władcy",
+                "zgodnie",
+                "zmienili",
+                "zmieniło"
+            ]
+        },
+        "raw_text": "inąć dużo czasu aż władcy Mahkry, aby uprościć sytuację, zmienili dekretem nazwę, na Marchię Południową.\nNie zmieniło to starych przyzwyczajeń ekuzyjskiej arystokracji, która zgodnie z tradycją, lepiej wiedziała co jest warte nazwania wschodem , a co południem. \n\nZ całej historii miasta Ekuzji otrzymaliśmy podczas naszej podróży z Gaerety wyczerpujący wykład z ust wielce uczonego i doświadczonego podróżnika, pieśniarza Menescardi.\n-Teraz dopiero- perorował, w przerwach między utyskiwaniem na twa"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zasłużonym",
+                "zda",
+                "zdobycie",
+                "znaczy",
+                "znajomość"
+            ],
+            "Topic 2": [
+                "znaczy",
+                "zda",
+                "znajomość",
+                "przecie",
+                "zalicza"
+            ],
+            "Topic 3": [
+                "zasłużonym",
+                "zda",
+                "zdobycie",
+                "znaczy",
+                "znajomość"
+            ]
+        },
+        "raw_text": "rdość siodeł i nędzny stan traktu- Teraz panowie poznacie co to znaczy znajomość z najsłynniejszym z bardów Mahkry!-\n-Hola, zda się, o kimś przepomniałeś...-\n-E, o mym zasłużonym nauczycielu nie wspominam, on się do naszego współzawodnictwa nie zalicza. On się zalicza do historii... lepszy w pieśniach ode mnie, sam przyznam, lecz to przecie efekt statystyki! Miał o wiele więcej lat na zdobycie przewagi. Teraz czas jego przeminął, przecie siedzi teraz dnie całe przy piecu, ciepły miód popija, poc"
+    },
+    {
+        "entities": [
+            {
+                "text": "Ekuzji",
+                "label": "placeName"
+            },
+            {
+                "text": "Opiekuna",
+                "label": "geogName"
+            },
+            {
+                "text": "-A",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaniepokoiłem",
+                "zapewnił",
+                "znam",
+                "świat",
+                "świata"
+            ],
+            "Topic 2": [
+                "zaniepokoiłem",
+                "zapewnił",
+                "znam",
+                "świat",
+                "świata"
+            ],
+            "Topic 3": [
+                "zaniepokoiłem",
+                "zapewnił",
+                "znam",
+                "świat",
+                "świata"
+            ]
+        },
+        "raw_text": "hrapuje.... a ja! Ja w ten czas świat schodzę, ludzi co jeszcze nie poznałem, poznaję, co mówię, z możnymi tego świata za pan brat! Aby to raz w Ekuzji byłem! Gościem tu jestem na dworze Księcia Opiekuna wyglądanym...-\n-Ejże- zaniepokoiłem się- Przecie my nie na dwór jedziem. Najpierw cicho i bezboleśnie rozejrzeć się po mieście musimy.-\n-A i ciemne kąty tego miasta znam ja, jak mało kto!- Zapewnił Menescardi- Nie bójcie się. Poprowadzę, gdzie trzeba. Szczęście prawdziwe, że jestem tu z wami, wi"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "wartości",
+                "wplątałem",
+                "własna",
+                "zajmowała",
+                "zastanawiając"
+            ],
+            "Topic 2": [
+                "wplątałem",
+                "własna",
+                "zastanawiając",
+                "zajmowała",
+                "tyle"
+            ],
+            "Topic 3": [
+                "wartości",
+                "wplątałem",
+                "własna",
+                "zajmowała",
+                "zastanawiając"
+            ]
+        },
+        "raw_text": "erzaj Ammianusie.-\n\nKiwnąłem mu głową, niezbyt się chwilowo nad tym szczęściem zastanawiając. Bardziej zajmowała mnie moja własna sytuacja.\nTa długa, nużąca i coraz bardziej niebezpieczna gra w którą się wplątałem..Na jakie demony było mi to potrzebne? Owszem, dawno nie miałem tak długiej ulgi od maszerowania. Ale nigdy też aż tyle czasu nie spędziłem na końskim grzbiecie! Jazda konna, jak się okazało nie jest na tyle szybkim sposobem komunikacji aby dodało to tej sztuce wartości przewyższającej"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "wyrwać",
+                "wędrówce",
+                "zaufania",
+                "zaufać",
+                "zrozumieć"
+            ],
+            "Topic 2": [
+                "zrozumieć",
+                "wędrówce",
+                "zaufania",
+                "zaufać",
+                "spokojnie"
+            ],
+            "Topic 3": [
+                "wyrwać",
+                "wędrówce",
+                "zaufania",
+                "zaufać",
+                "zrozumieć"
+            ]
+        },
+        "raw_text": " szkody. Kurzy się tak samo jak przy wędrówce pieszej, za to okrutny ból pojawia się w tak wielu miejscach ciała, że nie sposób to zrozumieć, nie doświadczywszy.\nDręczył mnie też myśli o mych towarzyszach, którzy obarczyli mnie brzemieniem zaufania. W ciągu kilku ostatnich lat nie miałem kompanów, którym mogłem zaufać na tyle, by spać spokojnie odwrócony do nich plecami. Teraz jednak też spokojnie nie spałem, myśląc o tych którzy chcieliby poderżnąć gardła nam wszystkim.\nSłowem, jakby tu wyrwać "
+    },
+    {
+        "entities": [
+            {
+                "text": "Ekuzja",
+                "label": "orgName"
+            },
+            {
+                "text": "Ekuzji",
+                "label": "geogName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zmęczone",
+                "znające",
+                "zostawić",
+                "zęby",
+                "łżę"
+            ],
+            "Topic 2": [
+                "zmęczone",
+                "znające",
+                "zostawić",
+                "zęby",
+                "łżę"
+            ],
+            "Topic 3": [
+                "zmęczone",
+                "znające",
+                "zostawić",
+                "zęby",
+                "łżę"
+            ]
+        },
+        "raw_text": "się z tej matni? Ekuzja jest dużym portem.. A jednak już nie mogłem ich zostawić samym sobie i czułem, że sam sobie o tej ucieczce łżę.\nZacisnąłem zatem zęby gdyśmy wjeżdżali przez jedną z bram w kamiennym murze Ekuzji.\nSłońce pięknie oświetlało nam drogę, ukazując szczodrym gestem wszelkie cuda portowego miasta. Zmęczone kurzem traktu oczy zdumiewały się pstrokatą odmianą, uszy przywykłe do czujnej ciszy dziczy poraził bezczelny harmider cywilizacji. Ciało znające od kilku dni to bezlitosną spi"
+    },
+    {
+        "entities": [
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zapytanie",
+                "zaraz",
+                "zresztą",
+                "zobaczyłem",
+                "bard"
+            ],
+            "Topic 2": [
+                "zapytanie",
+                "zaraz",
+                "zgłosił",
+                "zobaczyłem",
+                "zresztą"
+            ],
+            "Topic 3": [
+                "zapytanie",
+                "zaraz",
+                "zgłosił",
+                "zobaczyłem",
+                "zresztą"
+            ]
+        },
+        "raw_text": "ekotę, to znów przenikliwą wilgoć odetchnęło w cieniu wysokich murów.\nTylko nos od razu zgłosił gwałtowny i bezapelacyjny protest.\nProwadził nas bard. Strażnikowi przy bramie na jego zapytanie odpowiedział:\n-Bard Menescardi z orszakiem!-\nI już wiedziałem, że będą kłopoty.\nAle wpuszczono nas bez dodatkowych pytań. Ruch był zresztą spory. A targowisko zaczynało  się zaraz za bramą. \nPierwszy raz od wielu dni zobaczyłem tam wybrukowany kamieniami trakt. Była to główna arteria miasta przecinająca je"
+    },
+    {
+        "entities": [
+            {
+                "text": "Ekuzji",
+                "label": "placeName"
+            },
+            {
+                "text": "wschodu",
+                "label": "geogName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zamków",
+                "zboże",
+                "zniknęły",
+                "świątyń",
+                "żyło"
+            ],
+            "Topic 2": [
+                "zamków",
+                "zboże",
+                "zniknęły",
+                "świątyń",
+                "żyło"
+            ],
+            "Topic 3": [
+                "zboże",
+                "świątyń",
+                "zniknęły",
+                "żyło",
+                "zachodu"
+            ]
+        },
+        "raw_text": " z zachodu na wschód, starożytna pozostałość. Gdzie indziej imperialne drogi nie przetrwały, zniknęły stając się częścią nowcyh osad, ich wałów, zamków i świątyń. W Ekuzji przynajmniej główna ulica była przez cały czas pielęgnowana. Podobnie kamienne wały dokoła miasta, choć mówią, że to nie te same, które były tu tysiąc lat wstecz.\nA targowisko! Miasto żyło z handlu, z kupców zachodu i wschodu, kończących tu wiele wędrówek. Futra, kruszec, drewno, metale, zboże, wonne oleje i piękne tkaniny.. C"
+    },
+    {
+        "entities": [
+            {
+                "text": "Tawern",
+                "label": "placeName"
+            },
+            {
+                "text": "Boroh",
+                "label": "persName"
+            },
+            {
+                "text": "Migdak",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wprost",
+                "zachwalającego",
+                "zaciętą",
+                "zastanawiałem",
+                "zawrzeszczał"
+            ],
+            "Topic 2": [
+                "wprost",
+                "zachwalającego",
+                "zaciętą",
+                "zastanawiałem",
+                "zawrzeszczał"
+            ],
+            "Topic 3": [
+                "wprost",
+                "zachwalającego",
+                "zaciętą",
+                "zastanawiałem",
+                "zawrzeszczał"
+            ]
+        },
+        "raw_text": "o tylko kto chce!\nGdyśmy weszli w mury miasta najpierw dane nam było przedzieranie się przez barykady chłopstwa zachwalającego owoce swych trudów. Następnie, przedarłwszy się przez stosy rzepy i brukwi wpadliśmy wprost na Targ Niewolników. \nPrzekrzykując porykujących handlarzy bard tłumaczył, że to najprostrza droga do Dzielnicy Tawern. Ja zastanawiałem się, co o tym chaosie myślą Boroh i Migdak. Ten ostatni jechał już dłuższą chwilę z ponurą i zaciętą miną.\n-Dla młodego panicza!- zawrzeszczał m"
+    },
+    {
+        "entities": [
+            {
+                "text": "Borohowi",
+                "label": "persName"
+            },
+            {
+                "text": "Borohowi",
+                "label": "persName"
+            },
+            {
+                "text": "-A",
+                "label": "persName"
+            },
+            {
+                "text": "Krzyki",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "właściwe",
+                "zamiast",
+                "borohowi",
+                "twarz",
+                "wprost"
+            ],
+            "Topic 2": [
+                "wyrwało",
+                "właściwe",
+                "zamiast",
+                "zawrzało",
+                "śliczna"
+            ],
+            "Topic 3": [
+                "wyrwało",
+                "właściwe",
+                "zamiast",
+                "zawrzało",
+                "śliczna"
+            ]
+        },
+        "raw_text": "u w twarz jakiś gaerecki kupczyk- Śliczna dziewoja, prawie że dziewica, wprost od matuli oderwana, ale juże właściwe kursa odebrała...-\n-Czymżeś ją odrywał, tym batem?- Wyrwało się ponuro Borohowi.\n-Tss, nie gadaj bo się nie odczepią!- Syknał bard.\n-Aa, wielki wojak chciałby pewno odpocząć po dniu pełnym przygód!- Handlarz skręcił niby piskorz w saku, wprost ku Borohowi, lecz ten zamiast mu odpowiedzieć kopnął go wprost w twarz. \n-A tera, też się nie odczepi?-\nW tłumie zawrzało. Krzyki: straż, s"
+    },
+    {
+        "entities": [
+            {
+                "text": "-A",
+                "label": "persName"
+            },
+            {
+                "text": "Boroh",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaroiło",
+                "zastanowim",
+                "ziemi",
+                "zrazu",
+                "złowieszczo"
+            ],
+            "Topic 2": [
+                "zaroiło",
+                "zastanowim",
+                "ziemi",
+                "zrazu",
+                "złowieszczo"
+            ],
+            "Topic 3": [
+                "zaroiło",
+                "zastanowim",
+                "ziemi",
+                "zrazu",
+                "złowieszczo"
+            ]
+        },
+        "raw_text": "traż mieszały się z wrogim falowaniem tłumu.Nagle wokół nas zaroiło się od uzbrojonych w kije, ponurych osobników. \n-Tyle!- Ryknął bard sypiąc srebrnym deszczem na leżącego handlarza- Pół kopy talarów może być?-\n-Jak was obijem to się zastanowim.-\n-A ode mnie – Boroh uśmiechnął się złowieszczo pochylając nad wstającym właśnie z ziemi kupcem- Dobre słowo. Przyjmiesz przeprosiny? Nu, chamie? Bo u mnie przeprosin nie przyjąć to jak w twarz napluć. Zrazu tnę.-\nHandlarz pojękując kiwnął głową i geste"
+    },
+    {
+        "entities": [
+            {
+                "text": "ścina",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "złości",
+                "łaził",
+                "ścina",
+                "żeś",
+                "żyłach"
+            ],
+            "Topic 2": [
+                "złości",
+                "łaził",
+                "ścina",
+                "żeś",
+                "żyłach"
+            ],
+            "Topic 3": [
+                "złości",
+                "żeś",
+                "ścina",
+                "żyłach",
+                "nieco"
+            ]
+        },
+        "raw_text": "m cofnął drabów. Po czem zaczął zbierać monety, a my mogliśmy ruszać w drogę.\n-Oni tu stowarzyszenia mają przeciw takim wypadkom.- Rzekł nam blady nieco bard.- Bo straż powolna nieco jest. Zważajcie przyjaciele, bo na drugi raz... zadepczą was. Albo ukamienują.-\n-Pojmuję.- Poważnie odparł Boroh.-I lepiej będzie cobym po tych kramach nie łaził bo mnie się tu krew w żyłach ścina ze złości.-\n-Cóże, niewolnych żeś nie widział?-\n-Widziałem, niejednego sam przedałem, choć okup wolę brać. Ale ludzi sza"
+    },
+    {
+        "entities": [
+            {
+                "text": "mamrotanie",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "ziemi",
+                "zmieniał",
+                "zwierzę",
+                "zwykle",
+                "świnie"
+            ],
+            "Topic 2": [
+                "ziemi",
+                "zmieniał",
+                "zwierzę",
+                "zwykle",
+                "świnie"
+            ],
+            "Topic 3": [
+                "ziemi",
+                "zmieniał",
+                "zwierzę",
+                "zwykle",
+                "świnie"
+            ]
+        },
+        "raw_text": "nować trza, a nie jak te świnie w błocie utytłane..U mnie psy lepiej mają się, niż ci tutaj. Obyczaj wojenny mówi: wygranyś, jeńców bierz. Kto bogaty, wykupić się może. Kto nie może, z woja na rolę idzie, co zwykle i nie dziwne prostym wojakom. Kmieciom do pomocy, lubo na ziemi jakiej dzikiej osadzamy.  Nigdy w zwierzę ludzi nie przemienialiśmy, jak te tutaj, czarowniki..-\n\nGłos Boroha cichł z wolna, zmieniał się w mamrotanie pod nosem. Wojak był zadziwiony ogromem tego miasta, a niepewność w je"
+    },
+    {
+        "entities": [
+            {
+                "text": "Migdakowi",
+                "label": "persName"
+            },
+            {
+                "text": "Rzekłbyś",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wydaniu",
+                "wyrwało",
+                "zwykle",
+                "łuków",
+                "żywo"
+            ],
+            "Topic 2": [
+                "wydaniu",
+                "wyrwało",
+                "zwykle",
+                "łuków",
+                "żywo"
+            ],
+            "Topic 3": [
+                "wydaniu",
+                "łuków",
+                "zwykle",
+                "żywo",
+                "targ"
+            ]
+        },
+        "raw_text": "go wydaniu owocowała zwykle pewną nerwowością.\nMinęliśmy Targ Skór, Targ Łuków, Targ Koni i Targ Rybny. Stamtąd, w spokojniejszej uliczce dało się usłyszeć już szum morza. \n-Ile tu ludzi może być!- Wyrwało się Migdakowi.\n-Trzy dziesiątki tysięcy.- Obwieścił dumnie bard. Jako oprowadzający czuł się jakbyśmy to jego chwałę oglądali.\n-Może być, smród niemożebny, wielotysięczny.- Skrzywił się Boroh.- Rzekłbyś, cięgiem ktoś mury obszczywa.-\n-Głupiś!- Obruszył się Menescardi, żywo ugodzony tą krytyką."
+    },
+    {
+        "entities": [
+            {
+                "text": "Rybi Targ",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "znajdziem",
+                "złe",
+                "śmierdzi",
+                "żyć",
+                "żyło"
+            ],
+            "Topic 2": [
+                "znajdziem",
+                "złe",
+                "śmierdzi",
+                "żyć",
+                "żyło"
+            ],
+            "Topic 3": [
+                "znajdziem",
+                "złe",
+                "śmierdzi",
+                "tysięcy",
+                "luda"
+            ]
+        },
+        "raw_text": "- Śmierdzi, bo Rybi Targ dopiero cośmy mijali. Ale już tu tawernę znajdziem, gdzie bryza od morza złe smrody wygoni. Aleć taka cena za potęgę, bo i jak taka kupa luda mogłaby żyć razem, nie szczając i nie smrodząc? A wielkie imperium, jak dumasz, jakie było? Tć powiadają, że w on czas sto tysięcy luda tu żyło.-\n-E, bajki to jakieś.- Odparł na to Boroh.- Ja setnikiem byłem, tedy wiem o czym mowa. Widziałeś ty kiedy kilka tysięcy luda? Ja i owszem, i powiadam ci nawet w te twoje trzydzieści tysięc"
+    },
+    {
+        "entities": [
+            {
+                "text": "-A",
+                "label": "persName"
+            },
+            {
+                "text": "Górne",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wykarmił",
+                "wz",
+                "zamkiem",
+                "zaraz",
+                "zawali"
+            ],
+            "Topic 2": [
+                "wykarmił",
+                "wz",
+                "zamkiem",
+                "zaraz",
+                "zawali"
+            ],
+            "Topic 3": [
+                "wykarmił",
+                "zaraz",
+                "zawali",
+                "rzeknę",
+                "brać"
+            ]
+        },
+        "raw_text": "y nie wierzę. Kto by to wykarmił, skąd tyle wody brać. A i jak to miast bronić? Jakem widział te mury-  rzeknę ci, za długie som. Do obrony niezdatne, skąd tyla wojów brać? A i to ci rzeknę- to się lada dzień, noc samo zawali. Nierówne, szpary wszędy, mech, kruszy się...Karczmy pod murami nam nie bierz.-\n-A oto i już zaraz na miejscu będziem.- Przerwał mu bard- I słuchanie głupot będzie nam oszczędzone.-\nW samej rzeczy wjechaliśmy prawie do portu. Górne miasto, wraz z zamkiem osadzone jest na wz"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "wysoko",
+                "zajmował",
+                "zasłaniały",
+                "zatoka",
+                "zatokę"
+            ],
+            "Topic 2": [
+                "wysoko",
+                "zajmował",
+                "zasłaniały",
+                "zatoka",
+                "zatokę"
+            ],
+            "Topic 3": [
+                "wysoko",
+                "zajmował",
+                "zasłaniały",
+                "zatokę",
+                "mur"
+            ]
+        },
+        "raw_text": "górzu, które stromo opada od strony portu. Dachy budynków poniżej nas niczego nie zasłaniały, ponad nimi wyrastał mur, na którym biegła nasza droga, za drogą były kolejne budynki i kolejny mur, miasto wspinało się w ten sposób jeszcze dość wysoko. Otworzył się przed nami szeroki widok na półokrągłą zatokę.\nZatoka ekuzyjska z dawien dawna chroniona jest długimi falochronami , wybiegającymi z obu brzegów daleko w morze. Sam port zajmował całą widoczną przestrzeń brzegu. Od prawej majaczył w oddali"
+    },
+    {
+        "entities": [
+            {
+                "text": "Port Większy",
+                "label": "persName"
+            },
+            {
+                "text": "Wspólnym",
+                "label": "geogName"
+            },
+            {
+                "text": "Pustym",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wychodzące",
+                "wydawało",
+                "wyjątkowy",
+                "ścisk",
+                "żaglowce"
+            ],
+            "Topic 2": [
+                "wychodzące",
+                "wydawało",
+                "wyjątkowy",
+                "ścisk",
+                "żaglowce"
+            ],
+            "Topic 3": [
+                "wychodzące",
+                "żaglowce",
+                "prawdziwej",
+                "rzeszy",
+                "port"
+            ]
+        },
+        "raw_text": " Port Mniejszy, gdzie stała flota wojenna i statki uprzywilejowane. Potem krótkie umocnienia, niezgrabnie wychodzące w morze. Ponoć Opiekunowie budowali je cały czas. Następnie rozpoczynał się Port Większy, skupisko prawdziwej rzeszy okrętów, wszelkiego rodzaju i wielkości. W jednym miejscu wydawało się, że ścisk jest wyjątkowy, tam widać było prawdziwy las masztów. Stały tam żaglowce, okręty rzadkie w tych stronach, gdyż na morzach Wspólnym i Pustym wiatry bywają kapryśne i niestałe. W porcie p"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "znad",
+                "znaki",
+                "znane",
+                "zniknął",
+                "żagle"
+            ],
+            "Topic 2": [
+                "znad",
+                "znaki",
+                "znane",
+                "zniknął",
+                "żagle"
+            ],
+            "Topic 3": [
+                "znad",
+                "znaki",
+                "znane",
+                "żagle",
+                "czym"
+            ]
+        },
+        "raw_text": "rzeważały ogromne galery handlowe, gdzie żagle używane są czasem jako siła dodatkowa.\nChwilę ten widok podziwiać nam było dane. Po czym pogrążyliśmy się w wąskie, znane ponoć bardowi uliczki, by czym prędzej zejść ku morzu. Port zaraz zniknął nam z oczu, zasłonięty pobliskimi budynkami. I choć rzeczywiście czuć było delikatny powiew znad morza, to jednak smród tej dzielnicy potężnie dawał się nam we znaki. Kluczyliśmy dość długo, wierzchowce były dość niespokojne w tak niewielkiej, nieznanej im "
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zachodniego",
+                "zajęło",
+                "zakończyła",
+                "zwłaszcza",
+                "łodzie"
+            ],
+            "Topic 2": [
+                "zachodniego",
+                "zajęło",
+                "zakończyła",
+                "zwłaszcza",
+                "łodzie"
+            ],
+            "Topic 3": [
+                "łodzie",
+                "zajęło",
+                "zakończyła",
+                "dalej",
+                "kroków"
+            ]
+        },
+        "raw_text": "przestrzeni, co znów niepokoiło mocno zwłaszcza mnie. W końcu jednak mordęga zakończyła się i wyjechaliśmy na nadbrzeże. W tym miejscu cumowały łodzie rybackie, pełno było hałaśliwych obdartusów. Słońce już dawno przebyło część zachodniego nieba, tyle czasu zajęło nam przedzieranie się przez miasto!\n-Cóż dalej?-\n-Port nocą ożywa, dobrze wybraliśmy porę- Optymistycznie rzekł bard- Teraz już kilka kroków.-\nTym razem było jak powiedział. Istotnie kilka kroków dalej stała waląca się rudera, którą pr"
+    },
+    {
+        "entities": [
+            {
+                "text": "„Pod Michą”",
+                "label": "geogName"
+            },
+            {
+                "text": "Imć Boroh",
+                "label": "persName"
+            },
+            {
+                "text": "Tadga",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zostać",
+                "zyjaciel",
+                "ławami",
+                "łypnął",
+                "środka"
+            ],
+            "Topic 2": [
+                "zostać",
+                "zyjaciel",
+                "ławami",
+                "łypnął",
+                "środka"
+            ],
+            "Topic 3": [
+                "zostać",
+                "zyjaciel",
+                "ławami",
+                "łypnął",
+                "środka"
+            ]
+        },
+        "raw_text": "zyjaciel nas szumnie okrzyknął słynną gospodą „Pod Michą”. Cóż było robić, weszliśmy do środka. Imć Boroh zdecydował się zostać na zewnątrz, pilnując wierzchowce.\nW ciemnej, małej izbie, za barem skleconym z dwóch beczek i deski siedział otyły gospodarz. Poza nim sala pochwalić się jeszcze mogła kilkoma ławami, dwoma stołami, za nimi siedziało kilku staruszków dzierżących spore kufelki.\nOberżysta łypnął na nas podejrzliwie wyłupiastymi oczami. Zdaje się, że rozpoznał Tadga, nie nastąpiło jednakż"
+    },
+    {
+        "entities": [
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zamian",
+                "zaraz",
+                "zarzęził",
+                "zewnątrz",
+                "znacząco"
+            ],
+            "Topic 2": [
+                "zamian",
+                "zaraz",
+                "zarzęził",
+                "zewnątrz",
+                "znacząco"
+            ],
+            "Topic 3": [
+                "zamian",
+                "zewnątrz",
+                "znacząco",
+                "oberżysta",
+                "menescardi"
+            ]
+        },
+        "raw_text": "e z tego powodu szczególnie radosne i ciepłe przywitanie. Chrząknął, odcharchnął, przełknął. Zarzęził coś niewyraźnie, ale znacząco głośniej. Zaraz też przyleciał z ciemnej nory za nim chudy chłopaczek.\n-Idź, wyjrzyj, czy kto nie lazł za tymi tu. Potem konie do stajni weź.-Wywarknął polecenia oberżysta, chłopak wybiegł na zewnątrz.\nNa deskach pojawił się duży klucz, Menescardi w zamian położył na stole srebrnego talara. Oberżysta kiwnął głową coś tam zamamrotał, Menescardi odkiwnął i gestem ręki"
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroh",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaskoczeni",
+                "zatem",
+                "zbędna",
+                "zupełnie",
+                "ścianami"
+            ],
+            "Topic 2": [
+                "zaskoczeni",
+                "zatem",
+                "zbędna",
+                "zupełnie",
+                "ścianami"
+            ],
+            "Topic 3": [
+                "zaskoczeni",
+                "zupełnie",
+                "zbędna",
+                "ścianami",
+                "boroh"
+            ]
+        },
+        "raw_text": " wskazał nam ukryte w ciemności schody.\nStaruszkowie pod ścianami nie przestawali się na nas gapić.\nZatem ruszyliśmy ku naszej kwaterze.\n\nByła to niska izba pod  samym dachem, w niej sześć drewnianych prycz nakrytych wyprawionymi skórami. Zaraz za nami wgramolił się tam Boroh. Stanem tej kwatery byliśmy nielicho zaskoczeni.\n-To ten jeden z twoich pałacy?- Zapytał barda od razu Boroh.- A na dole, tamto, to twa książeca służba?-\n-Ironia zbędna zupełnie- Odparł bard, przerzucając skóry na posłaniu "
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zwłaszcza",
+                "zna",
+                "łożu",
+                "będziemy",
+                "zaraz"
+            ],
+            "Topic 2": [
+                "zmienią",
+                "zna",
+                "zobaczcie",
+                "zwłaszcza",
+                "łożu"
+            ],
+            "Topic 3": [
+                "zmienią",
+                "zna",
+                "zobaczcie",
+                "zwłaszcza",
+                "łożu"
+            ]
+        },
+        "raw_text": "przez siebie wybranym.- To tuaj zaraz nam zmienią, sienniki nowe przyniosą..Właściciel zna moje upodobania, zwłaszcza do braku robactwa w łożu. Wie też że solidnie płacę. Zaraz tu będą z dobrą pościelą.-\n    • I z jadłem smaczmy?- Zapytałem z nadzieją.\n    • No, bez przesady. Tutaj będziemy tylko spać. Tutaj rzeczy nam będą pilnować a nie okradną. A jak by uciekać przyszło czas, to i drogi stąd są, zobaczcie, tędy tutaj... Jadać i zdobywać informacje będziemy gdzie indziej.-\nRzeczywiście, po chw"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zdziwiło",
+                "zmęczone",
+                "złożyć",
+                "łaźni",
+                "śmierdzący"
+            ],
+            "Topic 2": [
+                "zdziwiło",
+                "zmęczone",
+                "złożyć",
+                "łaźni",
+                "śmierdzący"
+            ],
+            "Topic 3": [
+                "zdziwiło",
+                "zmęczone",
+                "złożyć",
+                "łaźni",
+                "śmierdzący"
+            ]
+        },
+        "raw_text": "ili doczekaliśmy się służacego, któy zabrał skóry, a przyniósł nie tylko sienniki, ale i grube prześcieradła i koce. Możnaby zatem od razu złożyć zmęczone kości na te luksusy, cóż gdy przecie sami brudni i śmierdzący byliśmy gorzej od tej części miasta.\nGdy więc się okazało, że w naszej gospodzie łaźni również brak ( co nikogo nie zdziwiło) nastąpił bunt. W jego wyniku bard pozostał w karczmie pilnować rzeczy (choć rzewnie tłumaczył, że to zbędna ostrożność), my zaś, reszta, poszliśmy poszukać m"
+    },
+    {
+        "entities": [
+            {
+                "text": "Silvaina",
+                "label": "persName"
+            },
+            {
+                "text": "Mojsławem",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wszędy",
+                "zawżdy",
+                "znajomków",
+                "zostawał",
+                "zwany"
+            ],
+            "Topic 2": [
+                "wszędy",
+                "zawżdy",
+                "znajomków",
+                "zostawał",
+                "zwany"
+            ],
+            "Topic 3": [
+                "wszędy",
+                "zawżdy",
+                "znajomków",
+                "zostawał",
+                "zwany"
+            ]
+        },
+        "raw_text": "iejsca do odświeżenia ciał i ubrań. \nI w takich luksusach przeżyliśmy dni trzy.\nZawżdy ktoś w naszej izbie zostawał, ganiać karaluchy i pluskwy ze służbą. Reszta szła do portu, szukać człowieka Silvaina, jeść i pić. Człowiek ten przez nas szukany zwany był Mojsławem. Silvain określił nam dwa miejsca gdzie miałby być, dwie karczmy o marnej sławie. Nie raz w tych mordowniach do bitki było nam blisko, szczęściem Menescardi sporo starych znajomków wszędy miał, a wnet my jako jego przyjaciele byliśmy"
+    },
+    {
+        "entities": [
+            {
+                "text": "Migdaka",
+                "label": "persName"
+            },
+            {
+                "text": "Borohowe",
+                "label": "persName"
+            },
+            {
+                "text": "Boroha",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wspólnej",
+                "wykończyli",
+                "zacząłem",
+                "zemknął",
+                "znani"
+            ],
+            "Topic 2": [
+                "wspólnej",
+                "wykończyli",
+                "zacząłem",
+                "zemknął",
+                "znani"
+            ],
+            "Topic 3": [
+                "wspólnej",
+                "wykończyli",
+                "znani",
+                "zemknął",
+                "głos"
+            ]
+        },
+        "raw_text": " znani.\nCzwartego dnia obudziłem się blisko południa, z ciężkim bólem głowy. Trzech nas było na miejscu, Migdaka brakowało. Chłopak korzystając coraz huczniej ze swobody zemknął wczesnym rankiem ze wspólnej popijawy. Jakaś panna grała w tym niebagatelną rolę. Trochę się o niego zacząłem martwić, gdy rozważania moje przerwał głos barda:\n-Druhowie, czas nam rozważyć co dalej. Otośmy bowiem i moje i pana Borohowe fundusze wczoraj i dzisiaj wykończyli.-\n-Pięknieś waść to ujął.- Steknął głos Boroha g"
+    },
+    {
+        "entities": [
+            {
+                "text": "gdybyś",
+                "label": "persName"
+            },
+            {
+                "text": "Borohu",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zechciał",
+                "łaski",
+                "śmiał",
+                "żal",
+                "żałować"
+            ],
+            "Topic 2": [
+                "zechciał",
+                "łaski",
+                "śmiał",
+                "żal",
+                "żałować"
+            ],
+            "Topic 3": [
+                "zechciał",
+                "łaski",
+                "śmiał",
+                "żal",
+                "żałować"
+            ]
+        },
+        "raw_text": "dzieś z mroków izby- Tylko bym nad liczbą tych kończących się zastanowił. Może by i na dzień dłużej starczyło, gdybyś w nocy w  kości nie zechciał grać.-\n-Musiałem w łaski bydlęcia się wkraść, pomnij, sam to herszt Dolnych Doków! To była, powiadam ci, inwestycyja! Teraz my już tu beśpiecznie, nikto na ten przykład okraść nas nie będzie śmiał. Kromie dziewek może, no ale te przy panu Borohu napracować muszą się nielicho, to i żal żałować..-\nNim kłótnia rozgorzała na dobre wtrąciłem szybko:\n-Zatem"
+    },
+    {
+        "entities": [
+            {
+                "text": "Ammainusie",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "unikać",
+                "wczoraj",
+                "winienem",
+                "wodę",
+                "zliczyć"
+            ],
+            "Topic 2": [
+                "unikać",
+                "wczoraj",
+                "winienem",
+                "wodę",
+                "zliczyć"
+            ],
+            "Topic 3": [
+                "unikać",
+                "wczoraj",
+                "winienem",
+                "zliczyć",
+                "talarów"
+            ]
+        },
+        "raw_text": "? Co teraz? Ile mamy pieniędzy? U mnie jeszcze jest sakwa, z 10 talarów winienem tam mieć w mahkramskich groszach...-\n-Nie masz Ammainusie...Rozmienialiśmy wczoraj u ciebie, dałeś mi...4 talary chyba...-\n-Nic więcej nam nie ostało.-\n-No to... prawda to cny panie Menescardi, w mej sakwie zliczyć można groszy na talarów sześć.  Nocleg opłacony?\n-Może do jutra.- Jęknął bard- Dałem talara, duża to suma, ale czwarty dzień siedzim. Gospodarza trza unikać. \n-Jeść można i kaszy miskę, pić i wodę...-\n-Gd"
+    },
+    {
+        "entities": [
+            {
+                "text": "Mojsława",
+                "label": "persName"
+            },
+            {
+                "text": "Migdak",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zabierać",
+                "zapomniwszy",
+                "zara",
+                "zdechnąć",
+                "zie"
+            ],
+            "Topic 2": [
+                "zabierać",
+                "zapomniwszy",
+                "zara",
+                "zdechnąć",
+                "zie"
+            ],
+            "Topic 3": [
+                "zabierać",
+                "zapomniwszy",
+                "zara",
+                "zdechnąć",
+                "zie"
+            ]
+        },
+        "raw_text": "zie, żeby zdechnąć zara z puchliny brzucha! Piwa nam trza najmniej.-\n-No to pić można i piwo cienkie, za pięć talarów długo jeszcze pożyjem...-\n-Ale miodu już nie brać, innym napitków nie stawiać!-\n-W kości nie grać!-\n-O niewiastach zapomniwszy. Tfu, do roboty mus nam się zabierać, albo tego Mojsława naleźć albo do Mahkry wracać nam.-\nNa te słowa wszedł Migdak wraz ze służacym. \n-Panie Menescardi, pan sakwę trzyma, czy możesz pożyczyć mi groszy sześć dziesiątek, bom w potrzebie wielgiej...-\n-Ker"
+    },
+    {
+        "entities": [
+            {
+                "text": "Eara Niezrównanego",
+                "label": "persName"
+            },
+            {
+                "text": "Ammianie",
+                "label": "placeName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "znaczyć",
+                "znany",
+                "zostajesz",
+                "zwie",
+                "żeglarzu"
+            ],
+            "Topic 2": [
+                "znaczyć",
+                "znany",
+                "zostajesz",
+                "zwie",
+                "żeglarzu"
+            ],
+            "Topic 3": [
+                "znaczyć",
+                "znany",
+                "żeglarzu",
+                "zwie",
+                "bard"
+            ]
+        },
+        "raw_text": "rynie!- Jęknął bard, chowając twarz w dłonie.\n-Panie- Skłonił się płytko służący.- Nowiny od Eara Niezrównanego. Będzie dziś wieczór w Żeglarzu.-\nRzekłwszy to zamilkł i czekał na monetę. Nie otrzymawszy jej wyszedł, trzaskając mocno drzwiami.\n-Co to ma znaczyć? Dla kogo ta nowina?-\n-Dla mnie!- Oznajmił bard.- Coś się dziać zaczyna! Dzisiaj ty Ammianie zostajesz w suchym doku. Ear, któy sam siebie Niezrównanym zwie to znany mi pieśniarz, niegdyś próbowałem uczyć go zawodu, lecz braki w talencie n"
+    },
+    {
+        "entities": [
+            {
+                "text": "adrobić niełatwo",
+                "label": "orgName"
+            },
+            {
+                "text": "Borohu",
+                "label": "persName"
+            },
+            {
+                "text": "Kerryn",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zasadzka",
+                "zmieniając",
+                "znikających",
+                "zostaje",
+                "zostać"
+            ],
+            "Topic 2": [
+                "zasadzka",
+                "zmieniając",
+                "znikających",
+                "zostaje",
+                "zostać"
+            ],
+            "Topic 3": [
+                "zasadzka",
+                "zmieniając",
+                "znikających",
+                "zostaje",
+                "zostać"
+            ]
+        },
+        "raw_text": "adrobić niełatwo.  Kradnie mi piosenki, niewdzięcznik jeden. I to tak bezczelnie, nic w nich nie zmieniając, jedynie autora! Po temu wolę mieć ciebie przy mnie, cny Borohu, weź jakąś pałkę, bo miecz na nic w tłocznej izbie. To może być zasadzka.-\n-O nie, coś się dzieje a ja mam tu zostać!- Sprzeciwiłem się stanowczo. Wizja moich przyjaciół i ostatnich, znikających monet...- Tym razem zostaje Kerryn! On już swoje sześćdziesiąt groszy wydał!-\nI tak się stało, we trzech wybraliśmy się tego wieczora"
+    },
+    {
+        "entities": [
+            {
+                "text": "„Pod Dobrym Żeglarzem",
+                "label": "geogName"
+            },
+            {
+                "text": "łotr",
+                "label": "persName"
+            },
+            {
+                "text": "Ludmiła\n",
+                "label": "persName"
+            },
+            {
+                "text": "się.- Zgrabny",
+                "label": "orgName"
+            },
+            {
+                "text": "-A",
+                "label": "persName"
+            },
+            {
+                "text": "mój!",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "złości",
+                "łotr",
+                "śmie",
+                "śniło",
+                "żeglarzem"
+            ],
+            "Topic 2": [
+                "złości",
+                "śniło",
+                "żeglarzem",
+                "słychać",
+                "bard"
+            ],
+            "Topic 3": [
+                "złości",
+                "łotr",
+                "śmie",
+                "śniło",
+                "żeglarzem"
+            ]
+        },
+        "raw_text": " do karczmy „Pod Dobrym Żeglarzem”.\nJuż z daleka słychać było stamtąd wesołe głosy. Bard stanął jak wryty i aż syknął ze złości.\n-Słyszycie? To łotr, przeklętnik i zdrajca! Jak on śmie?-\nA słychać było:\n„-Inna znów dziewczynka była\nA wołali ją Ludmiła\nMimo dość tłustego cielska\nByła bardzo marzycielska...-”1\nBoroh zaśmiał się.- Zgrabny koncept!-\n-A juści! Bo mój!-Zawołał z gniewem bard-A wszakże nikt mi za ten koncert nie płaci! To złodziej! Idziemy!-\n\n„-...Często śniło jej się w nocy\nŻe ją ryce"
+    },
+    {
+        "entities": [
+            {
+                "text": "Borohowi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaraz",
+                "zdecydowanie",
+                "zostawić",
+                "środka",
+                "środokowi"
+            ],
+            "Topic 2": [
+                "zaraz",
+                "zdecydowanie",
+                "zostawić",
+                "środka",
+                "środokowi"
+            ],
+            "Topic 3": [
+                "zaraz",
+                "zdecydowanie",
+                "zostawić",
+                "środka",
+                "środokowi"
+            ]
+        },
+        "raw_text": "rz miał w swej mocy\nA ona z wielką ochotą\nUwieńczała go swą cnotą...-”2\n\nWeszliśmy do środka i już od razu podano nam trzy piwa, nie pytając nawet o zamówienie. I jak tu oszczędzać?\n\n\n\n„-...I w sympatii doń miotała\nDuże kształty swego ciała...-”3\n\n-Ja go nauczę kraść rymy.- Warknął bard i zdecydowanie zaczął przepychać się ku środokowi sali. \n„-.. Nikt na palcach nie policzy\nIle miała z tym słodyczy...”4\n-Nie możemy go tak zostawić.- Rzekłem Borohowi.\n-Dlaczego?- Zapytał ten, lecz zaraz ruszył z"
+    },
+    {
+        "entities": [
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            },
+            {
+                "text": "Eara",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            },
+            {
+                "text": "Słowiku",
+                "label": "persName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "złodzieju",
+                "łapie",
+                "ścisku",
+                "śpiew",
+                "środku"
+            ],
+            "Topic 2": [
+                "złodzieju",
+                "łapie",
+                "ścisku",
+                "śpiew",
+                "środku"
+            ],
+            "Topic 3": [
+                "złodzieju",
+                "środku",
+                "ear",
+                "dziewcząt",
+                "menescardi"
+            ]
+        },
+        "raw_text": "a mną, a ja za bardem Menescardi.\n\nNo i w samym środku ścisku znaleźliśmy pieśniarza Eara, kończącego właśnie śpiew i uśmiechającego się do trzech chichotających dziewcząt. \n-Ty drabie!- Wrzasnął na niego Menescardi-Złodzieju!-\n-Eee, drogi Słowiku- Skrzywił się w odpowiedzi Ear- też się cieszę, że cię widzę. Piwo smakuje? To ode mnie.-\n-Aaa, jeśli tak to w porządku.- Uspokoił się nagle Menescardi.\n-Sam byś coś zawył, bo mnie już łapie chrypa.- Ear mrugnął okiem do jednej z dziewcząt, wywołując k"
+    },
+    {
+        "entities": [
+            {
+                "text": "Bramów",
+                "label": "placeName"
+            },
+            {
+                "text": "Marchii",
+                "label": "persName"
+            },
+            {
+                "text": "Boroh",
+                "label": "orgName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wojenną",
+                "zabrał",
+                "zapoznam",
+                "zatem",
+                "śpiewaj"
+            ],
+            "Topic 2": [
+                "wojenną",
+                "zabrał",
+                "zapoznam",
+                "zatem",
+                "śpiewaj"
+            ],
+            "Topic 3": [
+                "wojenną",
+                "zatem",
+                "śpiewaj",
+                "pałą",
+                "boroh"
+            ]
+        },
+        "raw_text": "olejne chichoty.\n-No... jasne- Rozpromienił się nasz druh, a ja poczułem, że knuje jakieś szalbierstwo.- Mam takąjedną pieśń, nie najlepszą może, ale tworzyłem ją nieco w pośpiechu. Wojenną.-\n-Śpiewaj zatem. A ja z twoją kompanią się zapoznam. Kim jest ten człowiek z wielką pałą?-\n-Boroh z Bramów, setnik z Marchii Północnej.- Chmurnie przedstawił się Boroh, rad by odłożyć gdzieś tą pałkę, którą zabrał na prośbę barda. Teraz jednak jakoś było mu niezręcznie.\n-Z czego? Człowieku z pałą, nie nazywa"
+    },
+    {
+        "entities": [
+            {
+                "text": "Marchii Północnej",
+                "label": "orgName"
+            },
+            {
+                "text": "Gór Zimnych",
+                "label": "geogName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            },
+            {
+                "text": "Człowiekiem",
+                "label": "persName"
+            },
+            {
+                "text": "Pałą",
+                "label": "placeName"
+            },
+            {
+                "text": "Czaszce",
+                "label": "placeName"
+            },
+            {
+                "text": "Czasz\n",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wypijmy",
+                "wzgórzu",
+                "zaczął",
+                "zimnych",
+                "zwanym"
+            ],
+            "Topic 2": [
+                "wypijmy",
+                "wzgórzu",
+                "zaczął",
+                "zimnych",
+                "zwanym"
+            ],
+            "Topic 3": [
+                "wypijmy",
+                "wzgórzu",
+                "zaczął",
+                "zimnych",
+                "zwanym"
+            ]
+        },
+        "raw_text": "j tak tej dziczy, bo Marchii Północnej nie ma po tej stronie Gór Zimnych. To jakieś nieporozumienie...-\nJuż, już a Ear stałby się Człowiekiem z Pałą w Czaszce, ale wmieszałem się i uspokoiłem nastroje, odciągając jednego od drugiego. Usiedliśmy przy wolnym stole w nieco ciemnym kącie sali. Menescardi w tym czasie zaczął brzdąkać na swoim instrumencie, zwanym krotą, dla mnie wyglądającym po prostu jak pudło z rozpiętymi strunami.\n\n-Gdy w miejscu stał czas\nNa wzgórzu Siedmiu Czasz\nWypijmy wino co "
+    },
+    {
+        "entities": [
+            {
+                "text": "Najsłynniejsza",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zagadnąłem",
+                "zdarzyć",
+                "zgadnę",
+                "łąjno",
+                "śmiecie"
+            ],
+            "Topic 2": [
+                "zagadnąłem",
+                "zdarzyć",
+                "zgadnę",
+                "łąjno",
+                "śmiecie"
+            ],
+            "Topic 3": [
+                "śmiecie",
+                "zdarzyć",
+                "zgadnę",
+                "łąjno",
+                "pieśń"
+            ]
+        },
+        "raw_text": "jest jak krew\nCo szczerą strugą syciła gniew\nNa tamtym wzgórzu, w tamten czas\nI wśród rozbitych wielu czasz\nA dziadów naszych wędrówki nadszedł kres...-\n\n-To padalec.-\n-Niech zgadnę; twoja pieśń?- Zagadnąłem.\n-Moja. Najsłynniejsza. Może jednak się zdarzyć, że tutejsi bywalcy o tym nie wiedzą. Ale łąjno z nimi. Same śmiecie. Oprócz was oczywista.-\n\nTymczasem pieśń osiągnęła sukces. Już po chwili chór męskich, choć niezbyt czystych głosów ryczał razem z panem Menescardi refren:\n\n-I w miejscu stał "
+    },
+    {
+        "entities": [
+            {
+                "text": "Ear",
+                "label": "persName"
+            },
+            {
+                "text": "Wzgórzu Siedmiu Czas",
+                "label": "geogName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaczęliśmy",
+                "zajmującym",
+                "zauważyłem",
+                "zaśmiał",
+                "zim"
+            ],
+            "Topic 2": [
+                "zaśmiał",
+                "ear",
+                "czas",
+                "siedmiu",
+                "wzgórzu"
+            ],
+            "Topic 3": [
+                "zaczęliśmy",
+                "zajmującym",
+                "zauważyłem",
+                "zaśmiał",
+                "zim"
+            ]
+        },
+        "raw_text": "czas\nNa Wzgórzu Siedmiu Czasz!-\n\n-Niezłe co?- Uśmiechnął się Ear- Słyszeliście to wcześniej?-\n-Nie, ale na Wzgórzu Siedmiu Czas byłem.- Pochwaliłem się.\n-Tysiąc lat temu?- Zaśmiał się ponownie.\n-Nieee...Pięć zim temu. W ramach wędrówki po krajach eolskich.-\nSłowo do słowa zaczęliśmy gadać o dawnych legendach, podaniach i historii. Ear okazał się człowiekem elokwentnym, zajmującym rozmówcą. Boroh milczał. A ja podczas niezwykle ciekawej konwersacji nie zauważyłem nawet, kiedy Menescardi skończył "
+    },
+    {
+        "entities": [
+            {
+                "text": "Ear",
+                "label": "persName"
+            },
+            {
+                "text": "Tadhga",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "ziewać",
+                "zmilczę",
+                "znarowiona",
+                "zęby",
+                "łap"
+            ],
+            "Topic 2": [
+                "ziewać",
+                "zmilczę",
+                "znarowiona",
+                "zęby",
+                "łap"
+            ],
+            "Topic 3": [
+                "ziewać",
+                "zmilczę",
+                "znarowiona",
+                "zęby",
+                "łap"
+            ]
+        },
+        "raw_text": "pieśń jedną, drugą i trzecią, a potem skończył i dosiadł się do nas. Po chwili zauważyłem go jednak, ponieważ zaczął on ziewać w tak potężny sposób, jakby koniecznie chciał nam pokazać wnętrzne swojego gardła.\n-I czego ziajesz jak znarowiona owca?- Zapytał go gniewnie Boroh.- Jak się na uczonych dyskursach nie uznajesz to łap za  lirę dać tej pijackiej bandzie jakowejś rozrywki..-\n-Zmilczę przez grzeczność.- Ear wyszczerzył zęby do Tadhga.\n-Kiep kto nie rozumie, że wdzięczysz się do mych druhów "
+    },
+    {
+        "entities": [
+            {
+                "text": "Szyderczo",
+                "label": "geogName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            },
+            {
+                "text": "Fineen",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaczął",
+                "zamek",
+                "zapomniał",
+                "zarycz",
+                "życzenia"
+            ],
+            "Topic 2": [
+                "zaczął",
+                "zamek",
+                "zapomniał",
+                "zarycz",
+                "życzenia"
+            ],
+            "Topic 3": [
+                "zaczął",
+                "zamek",
+                "życzenia",
+                "zarycz",
+                "grajki"
+            ]
+        },
+        "raw_text": "jako ta panienka z wiankiem.- Odparł na to bard- Po co, nie wiem, pewno dla udowodnienia, jakim to mądralą jesteś... Gadaj lepiej po coś chciał się ze mną spotkać. I zarycz teraz coś ty, teraz twoja kolej.-\n-Wedle twego życzenia, o szlachetny Menescardi.- Szyderczo pokłonił się Ear, chwytając harfę. W samej rzeczy czas był, bo rozgrzany tłumek zaczął wyć: Grajki! Grajki!\n-Idę. Aha, zabyłbym, zapomniał. Książę Fineen przesyła pozdrowienia i wyjaśnia, że już jutro możecie przybyć na zamek. Choć wy"
+    },
+    {
+        "entities": [
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            },
+            {
+                "text": "Ear",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaczęła",
+                "zafrasowani",
+                "zaplanowano",
+                "zgasnąć",
+                "śpiewać"
+            ],
+            "Topic 2": [
+                "druh",
+                "stary",
+                "pójść",
+                "dawny",
+                "czas"
+            ],
+            "Topic 3": [
+                "zaczęła",
+                "zafrasowani",
+                "zaplanowano",
+                "zgasnąć",
+                "śpiewać"
+            ]
+        },
+        "raw_text": "stęp pana Menescardi zaplanowano dopiero na pojutrze. Pa!-\n\nOsłupieliśmy. Ear mrugnął do nas, odskoczył w tłum i z daleka zaczął śpiewać, a jego miarowy, głęboki głos szybko uciszył gawiedź, która zaczęła mruczeć wraz z nim:\n\n„-Pójść ma w niepamięć stary druh\nWspomnienie zgasnąć w nas?\nPójść ma w niepamięć stary druh\nI dawny czas?\nZa dawny, bracie, czas\nZa dawny czas\nKielichy wznieśmy jeszcze raz\nZa dawny czas...-”5\n\nWyszliśmy z karczmy dość mocno zafrasowani. Ja czułem się bardziej pijany niż s"
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroha",
+                "label": "placeName"
+            },
+            {
+                "text": "Borohu",
+                "label": "geogName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wyrywał",
+                "występy",
+                "żadnego",
+                "złapany",
+                "cicho"
+            ],
+            "Topic 2": [
+                "wyrywał",
+                "występy",
+                "ziemia",
+                "złapany",
+                "żadnego"
+            ],
+            "Topic 3": [
+                "wyrywał",
+                "występy",
+                "ziemia",
+                "złapany",
+                "żadnego"
+            ]
+        },
+        "raw_text": "tali bywalcy owego przybytku, huczało mi w głowie, ziemia trzęsła mi się pod nogami.\n-Jakie, jakie występy.- Jąkał bard, ciągnięty przez Boroha za koszulę na karku. Menescardi, jak królik złapany przez gospodarza, wyrywał się nieco, lecz był bez szans i nie robiło to wyrywanie żadnego wrażenia na Borohu.\n-Puszczaj, wracam...-\n-Cicho siedź.-\n-Ale ten kozi chwost...co rzekł...mus nam go wypytać!-\n-Cicho. Wpierw wypytam ciebie.-\n-No nie, nie myślicie chyba, że to jaka intryga jest?-\n-Jak nie to ci "
+    },
+    {
+        "entities": [
+            {
+                "text": "Ksiondz",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wzrokiem",
+                "zadatków",
+                "zdurniały",
+                "łeb",
+                "żałosnego"
+            ],
+            "Topic 2": [
+                "wzrokiem",
+                "zadatków",
+                "zdurniały",
+                "łeb",
+                "żałosnego"
+            ],
+            "Topic 3": [
+                "wzrokiem",
+                "zadatków",
+                "zdurniały",
+                "łeb",
+                "żałosnego"
+            ]
+        },
+        "raw_text": "nic nie grozi, czy nie? Ja wiem jeno, że Ksiondz słuchać ma cię, twego pienia żałosnego za dwa dni. A ty nic, dupo wołowa, o tym nie wiesz?-\n-Na lisi urok, na bezdeń, na twój głupi, kudłaty łeb, nie!- Wrzasnął bard, całkiem zdurniały, tępym wzrokiem patrząc sięw przestrzeń.\nOchłonąłem nieco. Boroh miał wielką ochotę palnąć barda przez głowę ale chwyciłem go za rękę.\n-Stój! Co czynisz.. mówi, że nie wie to nie wie.-\n-Dajesz mu wiarę?-\n-Borohu, cny Menescardi nie ma zadatków na jakowegoś szpiega, "
+    },
+    {
+        "entities": [
+            {
+                "text": "Tadhg",
+                "label": "persName"
+            },
+            {
+                "text": "Menescardi",
+                "label": "persName"
+            },
+            {
+                "text": "-A czyż",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wkoło",
+                "wszak",
+                "wrzeszczał",
+                "zajmować",
+                "zapytałem"
+            ],
+            "Topic 2": [
+                "zajmować",
+                "wszak",
+                "dworze",
+                "znają",
+                "menescardi"
+            ],
+            "Topic 3": [
+                "wkoło",
+                "wszak",
+                "wrzeszczał",
+                "zajmować",
+                "zapytałem"
+            ]
+        },
+        "raw_text": "wszak trochę już go poznałeś. Nie widzi mi się, aby jakowąś dodatkową intrygę snuł. A pamiętasz, jakeśmy do miasta wjeżdżali, jak Tadhg się okrzyknął?-\n-Tak, cięgiem wkoło wrzeszczał: to ja , sławetny Menescardi.-\n-No i krzyczał to i usłyszeli. Jak cię, Menescardi, dobrze znają na tutejszym dworze?-\n-No bywałem tam, ale żeby tak się moją osobą zajmować...-\n-A czyż nie jesteś słynnym Menescardi?-Zapytałem ironicznie- Jakże to tak, bywałeś na dworze, znają cię, teraz Książę dowiaduje się, że jeste"
+    },
+    {
+        "entities": [
+            {
+                "text": "07.",
+                "label": "date"
+            },
+            {
+                "text": "02.",
+                "label": "date"
+            },
+            {
+                "text": "2019",
+                "label": "date"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zdecydowałem",
+                "zdrowie",
+                "znoszenie",
+                "ścieżką",
+                "znaczy"
+            ],
+            "Topic 2": [
+                "zdecydowałem",
+                "wskazał",
+                "zdrowie",
+                "znoszenie",
+                "ścieżką"
+            ],
+            "Topic 3": [
+                "zdecydowałem",
+                "wskazał",
+                "zdrowie",
+                "znoszenie",
+                "ścieżką"
+            ]
+        },
+        "raw_text": "ś w jego mieście,  a jemu się nie oznajmiasz, toć to niegrzecznie.-\n-No ale panowie- Zająknął się bard.- No w misji jesteśmy, tośmy się kryli... Znaczy się rozkazów nie mam... znaczy się..-\n-Spać czas iść.- Zdecydowałem. W podłym byłem humorze, ostatnimi czasy znoszenie się z najwyższymi sferami nie wychodziło mi na zdrowie.\n-Ale co z tym przecherą? Może coś dopowie?- Boroh wskazał drzwi karczmy.\n-Wracaj jak chcesz, ja się nasyciłem.- Odburknąłem mu.\n------07.02.2019\nI ruszyłem ciemną ścieżką w "
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "wyrobnicy",
+                "wyrywanie",
+                "własnym",
+                "żeglarze",
+                "życiem"
+            ],
+            "Topic 2": [
+                "wyrobnicy",
+                "wyrywanie",
+                "własnym",
+                "żeglarze",
+                "życiem"
+            ],
+            "Topic 3": [
+                "wyrobnicy",
+                "wyrywanie",
+                "własnym",
+                "żeglarze",
+                "życiem"
+            ]
+        },
+        "raw_text": "stronę noclegowni, a oni poszli za mną, szliśmy pochmurni, w milczeniu. Wokół port wrzał nocnym życiem, wciąż mijały nas, raz bliżej raz dalej, mniejsze lub większe kompanie. Żeglarze, strażnicy po służbie, wyrobnicy, handlarze, naciągacze, awanturnicy, pijacy i kurwy. \nWszystko szło, rzekłbyś, swoim własnym, beztroskim trybem. Tylko nas wiązała jakaś niedorzeczna sprawa ociekająca z każdej strony krwią, grożąca stryczkiem lub pręgierzem, w gratisie oferując takie atrakcje jak wyrywanie paznokci"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zatrzymania",
+                "zauważeniu",
+                "zauważyłem",
+                "zaułek",
+                "znaleźliśmy"
+            ],
+            "Topic 2": [
+                "zatrzymania",
+                "zauważeniu",
+                "zauważyłem",
+                "zaułek",
+                "znaleźliśmy"
+            ],
+            "Topic 3": [
+                "zatrzymania",
+                "zauważeniu",
+                "znaleźliśmy",
+                "zaułek",
+                "ostrza"
+            ]
+        },
+        "raw_text": " bądź miażdżenie palców. No i jak, na upiorne widma, należało się teraz z tego wyplątać?\nZajęty takimi myślami nie zauważyłem w czas końcówki krótkiego, lecz szerokieg ostrza, które oparło się o moją pierś. Po zauważeniu tegoż poczułem konieczność zatrzymania się.\nWłaściciela ostrza otaczał mrok, jego pięciu lub sześciu towarzyszy również. Wszyscy oni tłoczyli się wkoło nas, wypełniając wąski raczej zaułek, w którym się znaleźliśmy. Miejsce ciche, nie wróżące żadnych możliwości wezwania pomocy, "
+    },
+    {
+        "entities": [
+            {
+                "text": "Mojsław",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wzeszło",
+                "zasiąść",
+                "zatrzymałą",
+                "zda",
+                "zza"
+            ],
+            "Topic 2": [
+                "wzeszło",
+                "zasiąść",
+                "zatrzymałą",
+                "zda",
+                "zza"
+            ],
+            "Topic 3": [
+                "wzeszło",
+                "zasiąść",
+                "zatrzymałą",
+                "zda",
+                "zza"
+            ]
+        },
+        "raw_text": "bo i skąd?\nZza postaci, która nas zatrzymałą wyłonił się mały, chudy człowieczek.\n-Jestem Mojsław. A wy podobno, t oci sami durnie, którzy wypytują o mnie w każdej oberży w tym mieście, gębę sobie wycierając moim imieniem. Jak jakowąś szmatą. Słucham tedy, któy to druh nas poznakomił i w jakiej to popijawie. Bo zda mi się, pierwy raz was widzę, i klnę się, że ostatni.-\n\n\nMimo wszystko, nazajutrz ponownie wzeszło słońce. A my ciągle mieliśmy to szczęście, że udało się nam we czterech zasiąść do ś"
+    },
+    {
+        "entities": [
+            {
+                "text": "Kerryn",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zamku",
+                "zwłaszcza",
+                "łepetyny",
+                "śniadania",
+                "żałośnie"
+            ],
+            "Topic 2": [
+                "zamku",
+                "zwłaszcza",
+                "łepetyny",
+                "śniadania",
+                "żałośnie"
+            ],
+            "Topic 3": [
+                "zamku",
+                "zwłaszcza",
+                "łepetyny",
+                "śniadania",
+                "żałośnie"
+            ]
+        },
+        "raw_text": "niadania i to bez jakowyś strat cielesnych.\nChoć w nader ponurych nastrojach.\nMoże z powodu jakości śniadania? Chleb i wędzona ryba to nie uczta, zwłaszcza popijana wodą.  A i wspomnienia poprzedniego wieczora przyjaźnie nie nastrajały. \n-Mówię wam, który z nas lewą nogą bieżącą wodę przekroczyć musia... ejże!- Na wpół obiedzona rybia rtęć odbiła się od łepetyny barda.\n-Szkoda ryby- mruknął żałośnie Kerryn.\n-Nic się nie martw. Już dziś obficie sobie pojesz na zamku książęcym. Dziękuj lepiej nasz"
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroh",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zasrańcy",
+                "zębyście",
+                "śpicie",
+                "źle",
+                "żrecie"
+            ],
+            "Topic 2": [
+                "zasrańcy",
+                "zębyście",
+                "śpicie",
+                "źle",
+                "żrecie"
+            ],
+            "Topic 3": [
+                "zasrańcy",
+                "zębyście",
+                "śpicie",
+                "żrecie",
+                "bard"
+            ]
+        },
+        "raw_text": "emu dobrodziejowi.- Wtrąciłem gniewnie.\n-Zębyście wiedzieli zasrańcy!- Wrzasnął na to bard, wstając gwałtownie.- I dobrze! Wrócimy do normalnych warunków bytowania, zamiast gnieździć się jak szczury i wiatr w polu gonić!-\n-Sameć nas tu sprowadził, tępa pało.- Odparł mu Boroh mu na to, obgryzający suchy chleb, który mu jedyny pozostał w rękach, po użyciu ryby jako pocisku.\n-I co źle?- Zadrwił bard na to.- Żrecie, śpicie, nikt gardeł nie poderżnął...-\n-..ja ci tu zaraz...-\n-Spokój!- Zakrzyknąłem- "
+    },
+    {
+        "entities": [
+            {
+                "text": "Mojsławem",
+                "label": "placeName"
+            },
+            {
+                "text": "Wtrącił Kerryn",
+                "label": "persName"
+            },
+            {
+                "text": "Mojsław",
+                "label": "persName"
+            },
+            {
+                "text": "Silvaina",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wyszedł",
+                "zaczęli",
+                "zbirom",
+                "znikać",
+                "złowieszczo"
+            ],
+            "Topic 2": [
+                "wyszedł",
+                "zaczęli",
+                "zbirom",
+                "znikać",
+                "złowieszczo"
+            ],
+            "Topic 3": [
+                "wyszedł",
+                "zaczęli",
+                "zbirom",
+                "znikać",
+                "złowieszczo"
+            ]
+        },
+        "raw_text": "Ech dajcie spokój....spać mi się chce.-\n-Toć przecia dopiero co wstałeś.-\n-Poniechajcie, przyjaciele. Przecież w końcu z Mojsławem się udało spotkać.- Wtrącił Kerryn.\n-Eeee.- Boroh machnął ręką, wstał i wyszedł z izby. Ja natomiast ległem ponownie na posłanie.\n\nMojsław nie pomógł nam nic. Przekonanie go, że jesteśmy przyjaciółmi Silvaina to był mój jedyny sukces tego wieczoru. Gdy już nam uwierzył kiwnął głową z irytacją i dał sygnał zbirom. Zaczęli znikać w ciemnościach, równie złowieszczo jak "
+    },
+    {
+        "entities": [
+            {
+                "text": "Mojsław",
+                "label": "persName"
+            },
+            {
+                "text": "Tagdh",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "znajdę",
+                "zniknął",
+                "życie",
+                "łożu",
+                "wstawaj"
+            ],
+            "Topic 2": [
+                "zamierzyłem",
+                "znajdę",
+                "zniknął",
+                "łożu",
+                "życie"
+            ],
+            "Topic 3": [
+                "zamierzyłem",
+                "znajdę",
+                "zniknął",
+                "łożu",
+                "życie"
+            ]
+        },
+        "raw_text": "się pojawili.\nMojsław zaś popatrzył tylko na nas i rzekł:\n-Pamiętam. I znajdę was gdybyśmy ułapali tego ptaszka. Czekajcie.-\nI on zniknął również.\nI co dalej?\nTraciłem już resztki wiary w to, że w jakikolwiek sposób kontroluję swoje życie. Ogarnęła mnie apatia i zamierzyłem cały dzionek spędzić w łożu. Obudził mnie koło południa Tagdh. Był nieco nerwowy.\n-Wstawaj głupcze!- Szarpał moje ramię jak oszalały.- Wstawaj na bezdeń!-\nW głowie mi huczało jak po jakimś pijaństwie. A wszakże, niestety, byl"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zaproszenie",
+                "zaproszeniu",
+                "zastanów",
+                "zbieraj",
+                "zrobił"
+            ],
+            "Topic 2": [
+                "zaproszenie",
+                "zaproszeniu",
+                "zastanów",
+                "zbieraj",
+                "zrobił"
+            ],
+            "Topic 3": [
+                "zaproszenie",
+                "zaproszeniu",
+                "zastanów",
+                "zbieraj",
+                "zrobił"
+            ]
+        },
+        "raw_text": "iśmy trzeźwi już od dłuższego czasu.\n-Czego...jaśnie...panie..grajku?-\n-No właśnie. Wracamy do rzeczywistości.- Odwarknął mi prawie w twarz.- Torgny, weź się w garść i zastanów. Przecie zaprosili nas dzisiaj na zamek! Takiem zaproszeniu się nie odmawia, takie zaproszenie to rozkaz! Spać wolisz w komnacie czy w lochu? Bo że będziesz w zamku dzisiaj to pewne, tylko gdzie- od cię zależy. Zbieraj gnaty, właśniem zrobił przegląd moich strojów, totalna katastrofa....-\nWstałem niechętnie.\nBard kręcił s"
+    },
+    {
+        "entities": [
+            {
+                "text": "Rozstajach",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "włóczęgostwa",
+                "zaznał",
+                "śm",
+                "zmiany",
+                "prawda"
+            ],
+            "Topic 2": [
+                "włóczęgostwa",
+                "zaznał",
+                "założyć",
+                "zmiany",
+                "śm"
+            ],
+            "Topic 3": [
+                "włóczęgostwa",
+                "zaznał",
+                "założyć",
+                "zmiany",
+                "śm"
+            ]
+        },
+        "raw_text": "ię po izbie i lamentował. Co prawda to prawda, strój jego, jedyny jaki posiadał od czasu wyruszenia z gospody na Rozstajach, zaznał niedostatków naszego włóczęgostwa. Trochę deszczu, brak skutecznego prania, częste zmiany pogody....Tagdh wyglądał teraz tak jak my wszyscy, czyli jak bezdomny obszarpaniec.\n-Boroh może założyć swój skórzany kubrak.-Jęczał.- Jakoś zawsze wygląda on w nim dobrze. Kerryn już wczoraj chodził ustrojony w nową koszulę, aby się przypodobać nowej przyjaciółce. Nawet nie śm"
+    },
+    {
+        "entities": [
+            {
+                "text": "Kerryna",
+                "label": "persName"
+            },
+            {
+                "text": "Boroha",
+                "label": "persName"
+            },
+            {
+                "text": "Pokusa",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wody",
+                "zadysponować",
+                "zatrzeszczała",
+                "zbyt",
+                "żart"
+            ],
+            "Topic 2": [
+                "wody",
+                "zadysponować",
+                "zatrzeszczała",
+                "zbyt",
+                "żart"
+            ],
+            "Topic 3": [
+                "zatrzeszczała",
+                "kerryna",
+                "miecz",
+                "iść",
+                "zakupy"
+            ]
+        },
+        "raw_text": "ierdzi zbyt mocno. Ale my? Torgny- chwycił mnie za koszulę na piersi, która niebezpiecznie zatrzeszczała- musimy iść na zakupy!-\n-Dobry żart.-\n-No dobrze, ja muszę iść na zakupy!Ty ostatecznie możesz udawać mego posługacza...-\n-Za co chcesz zakupy robić imbecylu jeden? Kubek wody kosztuje tu tyle, co dworek na północy ,a my grosza nie mamy!-\n-Moglibyśmy przedać miecz Kerryna.-\nMiecz Kerryna, broń Boroha, inne tobołki.. wszystko leżało tuż obok. Pokusa, ab tym zadysponować według potrzeby, była m"
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroh",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "tadhgu",
+                "ukochanej",
+                "boroh",
+                "chyba",
+                "chłopak"
+            ],
+            "Topic 2": [
+                "tadhgu",
+                "ukochanej",
+                "weźże",
+                "zjawić",
+                "łachmaniarze"
+            ],
+            "Topic 3": [
+                "tadhgu",
+                "ukochanej",
+                "weźże",
+                "zjawić",
+                "łachmaniarze"
+            ]
+        },
+        "raw_text": "ocna.\n-Gdzie Boroh i chłopak?-\n-Chłopak chyba u ukochanej. Boroha poniosły gdzieś demony. Chyba na mury.-\n-Nie będziemy ruszać rzeczy naszych przyjaciół.- Oznajmiłem z bólem w sercu.- Przedamy za to konie.-\nCzyś ty rozum postradał? Pamiętasz co się stało jak ostatnim razem Boroh stracił rumaka? Ech, gdyby dorwał tego dziwaka, nawet teraz, na strzępy by go rozerwał. I jakże to tak, przed obliczem książęcym się zjawić- na piechotę? Jak łachmaniarze jacyś?-\n-Tadhgu. Weźże się w garść. Podróż nasza "
+    },
+    {
+        "entities": [
+            {
+                "text": "Nardo",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zatem",
+                "znużeniem",
+                "zobaczysz",
+                "złupią",
+                "łupów"
+            ],
+            "Topic 2": [
+                "zatem",
+                "znużeniem",
+                "zobaczysz",
+                "złupią",
+                "łupów"
+            ],
+            "Topic 3": [
+                "zatem",
+                "znużeniem",
+                "zobaczysz",
+                "złupią",
+                "łupów"
+            ]
+        },
+        "raw_text": "była kosztowna, wieleśmy z Nardo ostawili, łupów raczej nigdy nie mieliśmy wielkich. Zatem, jeśli nie jesteś w tej chwili w stanie pożyczyć od kogoś czego...-\n-Dostańmy się jeno za mury zamku!- Przerwał mi gwałtownie- Poczekaj, zobaczysz...!-\n-...to pogódź się z tym, że jesteśmy nędzarzami.- Dokończyłem swoją myśl.- Sprzedamy konie.-\n-Złupią nas bezlitośnie.- Bard zakrył dłońmi oczy ze znużeniem- Tutejsi kupcy.. straszy się nimi dzieci. To wysysające krew potwory! Zachowaj choć moją Belę. Mus mi"
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroh",
+                "label": "persName"
+            },
+            {
+                "text": "Bramów",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zgarbionych",
+                "znużony",
+                "zobaczymy",
+                "łba",
+                "życie"
+            ],
+            "Topic 2": [
+                "zgarbionych",
+                "znużony",
+                "zobaczymy",
+                "łba",
+                "życie"
+            ],
+            "Topic 3": [
+                "zgarbionych",
+                "znużony",
+                "zobaczymy",
+                "boroh",
+                "wjechać"
+            ]
+        },
+        "raw_text": ", po prostu mus wjechać w bramę zamku. Wjechać po pańsku! Życie moje od tego zależy.-\nDziwiło mnie jak błagał o tak nieważną dla mnie rzecz.\n-Zobaczymy- Odpowiedziałem mu w końcu, bo czułem się tymi jękami doprawdy znużony. I wtedy do komnaty naszej wtargnął Boroh.\n-Sprzedajemy konie. Tak zarządził Ammianus.- Od razu rzekł mu bard.\nBoroh z Bramów wlepił we mnie ciężkie spojrzenie z pode łba i bardzo zgarbionych pleców. Szykowała się długa dyskusja....\n\nGodzinę później przecieraliśmy się we dwóch"
+    },
+    {
+        "entities": [
+            {
+                "text": "Borohem",
+                "label": "persName"
+            },
+            {
+                "text": "Boroh",
+                "label": "persName"
+            },
+            {
+                "text": "Końskiego Targu",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wolę",
+                "wytrwałe",
+                "zaklął",
+                "zupełna",
+                "zyskiem"
+            ],
+            "Topic 2": [
+                "wolę",
+                "wytrwałe",
+                "zaklął",
+                "zupełna",
+                "zyskiem"
+            ],
+            "Topic 3": [
+                "zaklął",
+                "zupełna",
+                "stronę",
+                "boroh",
+                "targu"
+            ]
+        },
+        "raw_text": " z Borohem w stronę targu koni. Bard został pilnować resztek naszego dobytku. \n-Sprzedać dobre konie - mamrotał Boroh- takie ułożone.... wytrwałe, niebojaźliwe. Głupota to zupełna, po moim trupie. Wolę z gołym tyłkiem księcia witać niż stracić rumaka. Gdzie temu do mojego gniadego, ale przecie zawsze kawaleryjski koń...-\nPostawił na swoim. W stronę Końskiego Targu wlekliśmy tylko dwie juczne kobyłki. Boroh zaklął się, że sprzeda je z takim zyskiem, aby starczyło to na jakikolwiek porządny przyod"
+    },
+    {
+        "entities": [
+            {
+                "text": "Barda",
+                "label": "persName"
+            },
+            {
+                "text": "Mijaliśmy",
+                "label": "persName"
+            },
+            {
+                "text": "winiarski",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wszakże",
+                "wytwórcy",
+                "zbliżało",
+                "ziewek",
+                "łaźni"
+            ],
+            "Topic 2": [
+                "łaźni",
+                "zbliżało",
+                "dzień",
+                "wielkim",
+                "targowy"
+            ],
+            "Topic 3": [
+                "wszakże",
+                "wytwórcy",
+                "zbliżało",
+                "ziewek",
+                "łaźni"
+            ]
+        },
+        "raw_text": "ziewek dla mnie i Barda, a dla wszystkich dodatkowo na wizytę w łaźni. \n\nPrzedzieraliśmy się w wielkim tłoku i z wielkim mozołem. Było coraz głośniej i goręcej. Zbliżało się wszakże południe. \n-Chyba dziś dzień targowy. -\n-Tu zawsze jest dzień targowy. Pić mi się chce.-\nMijaliśmy właśnie stragan winiarski. Dalej byli bednarze i garncarze, wytwórcy skórzanych bukłaków oraz kołodzieje. I jeszcze tylko ulica pełna tanich półcień samodziałowych, szorstkich okryć i mocnych pasów i już byliśmy prawie "
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroh",
+                "label": "orgName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaskoczyło",
+                "zdziwił",
+                "zyskiem",
+                "żebym",
+                "siodło"
+            ],
+            "Topic 2": [
+                "zaskoczyło",
+                "zdziwił",
+                "zyskiem",
+                "łotrzykach",
+                "żebym"
+            ],
+            "Topic 3": [
+                "zaskoczyło",
+                "zdziwił",
+                "zyskiem",
+                "łotrzykach",
+                "żebym"
+            ]
+        },
+        "raw_text": "na miejscu. Słychać było nawoływania i dźwięki kuźni - targ kowali. \nKonie i ich uprząż sprzedaliśmy z dobrym zyskiem. Co nas zaskoczyło, to cena za jedno siodło, które było na jednej z kobyłek. \n-Kto by się spodziewał tego po tych łotrzykach?- Zdziwił się Boroh ważąc podróżną sakiewkę w dłoniach.- Sielne siodło, nawet żebym się nie przyjrzał wcześniej, nie dziw, że kupce dały tyle grosza co za jednego konika, mało-wiele targując się.-\n-Trochę dziwili się, że na jucznym jeździeckie siodło. - Pok"
+    },
+    {
+        "entities": [
+            {
+                "text": "Boroh",
+                "label": "persName"
+            },
+            {
+                "text": "Borohu",
+                "label": "persName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zbójecki",
+                "zresztą",
+                "ów",
+                "łokieć",
+                "łup"
+            ],
+            "Topic 2": [
+                "zbójecki",
+                "łokieć",
+                "boroh",
+                "naszej",
+                "sakiewkę"
+            ],
+            "Topic 3": [
+                "zbójecki",
+                "zresztą",
+                "ów",
+                "łokieć",
+                "łup"
+            ]
+        },
+        "raw_text": "rywałem głową. \n-Trochę, - zaśmiał się Boroh - ale nie za bardzo. Zresztą wcale nie byli ciekawi naszej historii, kto ów co to siodło stracił. Dobrze, że już w naszych rękach to nie jest, boć i to możebne, że jaki stary właściciel własności się swojej w nim doszuka. Wiadomo, zbójecki łup to był!-\n- No dajże Borohu tą sakiewkę, schowam, fortuny naszej nie pokazuj wszystkim wokoło.-\n\nBoroh oddał mi sakiewkę, chwilę szliśmy w milczeniu. Lecz już kilka kroków dalej chwycił mnie za łokieć i pociągnął"
+    },
+    {
+        "entities": [
+            {
+                "text": "Jesionowej",
+                "label": "geogName"
+            },
+            {
+                "text": "piwska",
+                "label": "placeName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "zaułek",
+                "zgromiłem",
+                "znam",
+                "zniszczyć",
+                "zniweczyć"
+            ],
+            "Topic 2": [
+                "zaułek",
+                "zgromiłem",
+                "znam",
+                "zniszczyć",
+                "zniweczyć"
+            ],
+            "Topic 3": [
+                "zaułek",
+                "zgromiłem",
+                "znam",
+                "zniszczyć",
+                "zniweczyć"
+            ]
+        },
+        "raw_text": " w lewo, roztrącając przechodniów i skręcając z głównej ulicy. \n-Gdzie..?-\n-No chodźże, patrz, znam przecie ten zaułek. To prosta droga ku Jesionowej, a tam - cudy na patyku; stuletnie wina, gęste miody, piwska przednie... Muszę się napić.-\n- Borohu z Polany!-Zgromiłem go, choć i moje serce tajało, gdybym słuchał tej chmielem pachnącej tyrady. - Chceszże zniweczyć trudy wcześniejsze, zniszczyć plon tak udany, utopić go w bezecnej rozrywce?\n-Ech, tylko na kufelek  - skrzywił się druh mój- boć i n"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "zaznaczam",
+                "zdrowy",
+                "zeżrą",
+                "zwyciężyły",
+                "żelazne"
+            ],
+            "Topic 2": [
+                "zaznaczam",
+                "zdrowy",
+                "zeżrą",
+                "zwyciężyły",
+                "żelazne"
+            ],
+            "Topic 3": [
+                "żelazne",
+                "zdrowy",
+                "zeżrą",
+                "zwyciężyły",
+                "idźże"
+            ]
+        },
+        "raw_text": "ależy mi się. Jakże to, to ja z chamstwem się wykłócam o srebrniki, z których bard krasne portki wykroić sobie każe? Tfu, niech mnie gzy zeżrą, jak nic z tego nie będę miał!-\nCóż by było czynić? Musiałem mu ulec, lecz zaznaczam to z dumą, iż żelazne me nerwy oraz wrodzony zdrowy rozsądek zwyciężyły z brutalnymi instynktami mego druha. \n-Idźże się napić, przyjacielu. -Odparłem podając mu wyciągnięte z sakiewki grosze - masz tu gros tuzinowy. Idźże.-\n- Kpisz sobie, co ja z tym grosiwkiem uczynię? "
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "wieczorem",
+                "wyobraziłem",
+                "zawróciłem",
+                "śmiech",
+                "zatem"
+            ],
+            "Topic 2": [
+                "wieczorem",
+                "trzosem",
+                "wyobraziłem",
+                "zawróciłem",
+                "śmiech"
+            ],
+            "Topic 3": [
+                "wieczorem",
+                "trzosem",
+                "wyobraziłem",
+                "zawróciłem",
+                "śmiech"
+            ]
+        },
+        "raw_text": "A ty?-\n -Ja muszę do kwatery - westchnąłem, oparłwszy się po kusie. - Masz zatem jeszcze pół tuzina groszy. Nie będę z tobą chlać.Popiję sobie wieczorem z księciem.-\n-Jak chcesz -odburknął Boroh i ruszył swoją drogą.\n\n Ja zaś, rozejrzawszy się po okolicy, stwierdziłem, iż jest ona raczej niebezpieczna dla człowieka z pełnym trzosem. Już chciałem biec za Borohem, ale gdy wyobraziłem sobie jego pogardliwy śmiech- duma nie pozwoliła mi na to. \nZawróciłem zatem w stronę centrum miasta. Następnie, ro"
+    },
+    {
+        "entities": [
+            {
+                "text": "Rynek Sądu Mniejszego",
+                "label": "orgName"
+            },
+            {
+                "text": "Ekuzji",
+                "label": "placeName"
+            },
+            {
+                "text": "Rynek Mniejszy",
+                "label": "geogName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wyjaśniam",
+                "wyjątkiem",
+                "świątecznych",
+                "zniechęcić",
+                "rynek"
+            ],
+            "Topic 2": [
+                "wyjaśniam",
+                "wyjątkiem",
+                "zglądając",
+                "zniechęcić",
+                "świątecznych"
+            ],
+            "Topic 3": [
+                "wyjaśniam",
+                "wyjątkiem",
+                "zglądając",
+                "zniechęcić",
+                "świątecznych"
+            ]
+        },
+        "raw_text": "zglądając się uważnie, wybrałem drogę najbezpieczniejszą, wiodącą między innymi przez Rynek Sądu Mniejszego. Pokrótce wyjaśniam, iż sąd ten w mieście Ekuzji sprawowany jest przez czas cały z wyjątkiem najważniejszych dni świątecznych. Tak też było onego wieczoru, gdym przechodził przez Rynek Mniejszy. Sądzono tam zaś pospolitych przestępców, drobnych rzezimieszków, przez co i sądy są szybkie i kary głośno obwieszczane, aby zniechęcić ewentualnych naśladowców.\n Już z daleka słyszałem dźwięczny gł"
+    },
+    {
+        "entities": [
+            {
+                "text": "przedstawiciela",
+                "label": "placeName"
+            },
+            {
+                "text": "Trybunału",
+                "label": "orgName"
+            },
+            {
+                "text": "Straży Miejskiej",
+                "label": "orgName"
+            }
+        ],
+        "topics": {
+            "Topic 1": [
+                "wymieniam",
+                "wytoczonego",
+                "władzy",
+                "znudzonym",
+                "zwykłych"
+            ],
+            "Topic 2": [
+                "wymieniam",
+                "wytoczonego",
+                "władzy",
+                "znudzonym",
+                "zwykłych"
+            ],
+            "Topic 3": [
+                "wymieniam",
+                "wytoczonego",
+                "zwykłych",
+                "czasie",
+                "pełni"
+            ]
+        },
+        "raw_text": "os przedstawiciela Trybunału, który znudzonym wielce, choć donośnym głosem wołał: -...co następuje! Winę  podsądnego za, wymieniam:  obrazę władzy panującej, tudzież sponiewieranie tejże w postaci obecnych tu funkcjonariuszy Straży Miejskiej, poprzez ich obicie-  bezsprzecznie udowodniono!\nSkazujemy tedy więźnia na karę przebywania w ciemnicy do czasu pełni podwójnej, potem zaś na roboty w czasie trzech pełni zwykłych, w czasie których odrobi koszta wytoczonego procesu oraz kwaterunku w książęcy"
+    },
+    {
+        "entities": [],
+        "topics": {
+            "Topic 1": [
+                "wnieść",
+                "występek",
+                "zmianę",
+                "łaski",
+                "łobuz"
+            ],
+            "Topic 2": [
+                "łobuz",
+                "występek",
+                "zmianę",
+                "podsądny",
+                "koszta"
+            ],
+            "Topic 3": [
+                "wnieść",
+                "występek",
+                "zmianę",
+                "łaski",
+                "łobuz"
+            ]
+        },
+        "raw_text": "ch lochach. Podsądny ma prawo odwołać się do książęcej łaski, jeśliby jednak takowej książę nie udzielił – koszta apelacji naliczone będą. Podsądny może spłacić koszta wcześniej, może też wnieść o zmianę kary więzienia na karę pieniężną, koszta policzone odpowiednio będą.-\nAż pokręciłem głową nad mądrością praw ekuzyjskich. Pewien byłem, że skazany łobuz jeszcze tego samego dnia występek swój uczynił!"
+    }
+]
