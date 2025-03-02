@@ -7,16 +7,31 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import os
 
+import streamlit as st
+from dotenv import dotenv_values
+import openai
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.decomposition import LatentDirichletAllocation
+
+# Wczytanie zmiennych środowiskowych
 env = dotenv_values(".env")
+
+# Sprawdzenie, czy klucz API istnieje w sesji
 if "openai_api_key" not in st.session_state:
     st.session_state["openai_api_key"] = env.get("OPENAI_API_KEY", "")
 
+# Jeśli nie ma klucza API, poproś użytkownika o jego podanie
 if not st.session_state["openai_api_key"]:
     st.session_state["openai_api_key"] = st.sidebar.text_input("Podaj swój OpenAI API Key", type="password")
-    if not st.session_state["openai_api_key"]:
-        st.warning("Musisz dodać swój OpenAI API Key, aby korzystać z aplikacji.")
-        st.stop()
-openai.api_key = st.session_state["openai_api_key"]
+
+# Jeśli nadal nie ma klucza API, zatrzymaj aplikację
+if not st.session_state["openai_api_key"]:
+    st.warning("Musisz dodać swój OpenAI API Key, aby korzystać z aplikacji.")
+    st.stop()
+
+# Inicjalizacja klienta OpenAI w `st.session_state` (jeśli jeszcze nie istnieje)
+if "openai_client" not in st.session_state:
+    st.session_state["openai_client"] = openai.OpenAI(api_key=st.session_state["openai_api_key"])
 
 st.title("Fabryka Niedokończonych Opowieści")
 
@@ -27,11 +42,10 @@ budget_options = {
     "Tekst do 15 PLN": 75000,
 }
 
-import openai
-
+# ✅ Poprawiona funkcja analizy NER
 def analyze_text_with_ner(input_text):
     try:
-        client = openai.OpenAI(api_key=st.session_state["openai_api_key"])  # ✅ Nowy klient
+        client = st.session_state["openai_client"]  # Pobranie klienta z sesji
 
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -49,7 +63,7 @@ def analyze_text_with_ner(input_text):
         st.error(f"Failed to analyze text for entities: {e}")
         st.session_state['ner_results'] = []
 
-
+# ✅ Poprawiona funkcja analizy tematów
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
     vectorizer = CountVectorizer(stop_words='english')
     text_data = vectorizer.fit_transform([input_text])
@@ -63,9 +77,10 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 
     st.session_state['topic_results'] = topics
 
+# ✅ Poprawiona funkcja tworzenia mapy koncepcyjnej
 def create_concept_map(input_text):
     try:
-        client = openai.OpenAI(api_key=st.session_state["openai_api_key"])  # ✅ Nowy klient
+        client = st.session_state["openai_client"]  # Pobranie klienta z sesji
 
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -210,19 +225,30 @@ with col3:
 
         Generuj **kolejno każdy punkt**.
         """
-        
-
         for i in range(9):
             part = "Introduction" if i < 3 else "Middle" if i < 6 else "Conclusion"
             point_prompt = initial_prompt + f"\nGenerate point for: {part}. This should be concise."
 
-            response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": point_prompt}]
-            )
+            # ✅ Sprawdzenie, czy `openai_client` istnieje
+            if "openai_client" not in st.session_state:
+                st.error("Błąd: Klient OpenAI nie został poprawnie zainicjalizowany.")
+                break  # Przerwij pętlę, jeśli klient nie istnieje
 
-            point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
-            st.session_state["story_outline"].append(point_content)
+            client = st.session_state["openai_client"]
+
+            try:
+                response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
+                    model="gpt-3.5-turbo",
+                    messages=[{"role": "user", "content": point_prompt}]
+                )
+
+                point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
+                st.session_state["story_outline"].append(point_content)
+
+            except Exception as e:
+                st.error(f"Błąd podczas generowania punktu {i+1}: {e}")
+                break  # Przerwij pętlę w razie błędu, by uniknąć dalszych problemów
+
             time.sleep(3)
 
         st.subheader("Plan Kontynuacji opowieści")
@@ -237,8 +263,8 @@ with col3:
     if st.button("Zatwierdź i Generuj Opowieść"):
         st.info("Generowanie historii... Proszę czekać.")
 
-
         story_parts = []
+
         for j in range(0, len(st.session_state["story_outline"]), 3):
             current_plan_points = "\n".join(st.session_state["story_outline"][j:j + 3])
 
@@ -250,14 +276,26 @@ with col3:
             PLAN SEGMENT:
             """ + current_plan_points
 
-            response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                model="gpt-3.5-turbo",
-                messages=[{"role": "user", "content": story_prompt}],
-                max_tokens=1500
-            )
+            # ✅ Pobranie klienta z sesji (upewniamy się, że istnieje)
+            if "openai_client" not in st.session_state:
+                st.error("Błąd: Klient OpenAI nie został poprawnie zainicjalizowany.")
+                break  # Przerwij pętlę, jeśli klient nie istnieje
 
-            segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
-            story_parts.append(segment_content)
+            client = st.session_state["openai_client"]
+
+            try:
+                response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
+                    model="gpt-3.5-turbo",
+                    messages=[{"role": "user", "content": story_prompt}],
+                    max_tokens=1500
+                )
+
+                segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
+                story_parts.append(segment_content)
+
+            except Exception as e:
+                st.error(f"Błąd podczas generowania segmentu historii: {e}")
+                break  # Przerywamy pętlę w razie błędu, by uniknąć kolejnych błędnych wywołań
 
             time.sleep(3)
 
