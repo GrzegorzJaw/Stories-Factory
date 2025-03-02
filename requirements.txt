@@ -1,12 +1,6 @@
 streamlit
 python-dotenv
 openai
-PyPDF2
-python-docx
-tiktoken
-spacy
-scikit-learn
 networkx
-transformers==4.32.0
-io
-time
+scikit-learn
+spacy
