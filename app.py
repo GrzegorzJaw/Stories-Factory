@@ -33,12 +33,15 @@ budget_options = {
 
 def analyze_text_with_ner(input_text):
     try:
-        response = openai.Completion.create(
-            engine="gpt-3.5-turbo",
-            prompt=f"Identify the named entities in the following text:\n{input_text}",
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Identify named entities in the following text."},
+                {"role": "user", "content": input_text}
+            ],
             max_tokens=500
         )
-        entities_info = response.choices[0].text.strip().split(', ')
+        entities_info = response.choices[0].message['content'].strip().split(', ')
         st.session_state['ner_results'] = entities_info
     except Exception as e:
         st.error(f"Failed to analyze text for entities: {e}")
@@ -60,15 +63,19 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 
 def create_concept_map(input_text):
     try:
-        response = openai.Completion.create(
-            engine="gpt-3.5-turbo",
-            prompt=f"Analyze the relationships and conceptual connections in the following text:\n{input_text}",
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
+                {"role": "user", "content": input_text}
+            ],
             max_tokens=500
         )
-        concept_relations = response.choices[0].text.strip()
+        concept_relations = response.choices[0].message['content'].strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
     except Exception as e:
         st.error(f"Failed to create concept map: {e}")
+        st.session_state['concept_relations'] = []
 
 
 # Precyzyjne usunięcie marginesów bocznych, ale z 1 cm marginesem
