@@ -9,12 +9,6 @@ from sklearn.decomposition import LatentDirichletAllocation
 import spacy
 import os
 
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    os.system("python -m spacy download en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
-
 
 env = dotenv_values(".env")
 if "openai_api_key" not in st.session_state:
@@ -29,7 +23,9 @@ openai.api_key = st.session_state["openai_api_key"]
 
 st.title("Fabryka Niedokończonych Opowieści")
 
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.blank("en")  # Używa pustego modelu, zamiast pobierać en_core_web_sm
+
+nlp.add_pipe("ner")
 
 token_cost_per_token = 0.0001
 budget_options = {
