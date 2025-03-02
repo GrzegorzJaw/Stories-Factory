@@ -57,16 +57,19 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
     st.session_state['topic_results'] = topics
 
 def create_concept_map(input_text):
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {"role": "system", "content": "Analyze the relationships and conceptual connections in the following text:"},
-            {"role": "user", "content": input_text}
-        ],
-        max_tokens=500
-    )
-    concept_relations = response["choices"][0]["message"]["content"]
-    st.session_state['concept_relations'] = concept_relations
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "Analyze the relationships and conceptual connections in the following text:"},
+                {"role": "user", "content": input_text}
+            ],
+            max_tokens=500
+        )
+        concept_relations = response["choices"][0]["message"]["content"]
+        st.session_state['concept_relations'] = concept_relations
+    except Exception as e:
+        st.error(f"Failed to create concept map: {e}")
 
 
 
