@@ -27,20 +27,28 @@ budget_options = {
     "Tekst do 15 PLN": 75000,
 }
 
+import openai
+
 def analyze_text_with_ner(input_text):
     try:
-        response = openai.ChatCompletion.create(
+        client = openai.OpenAI(api_key=st.session_state["openai_api_key"])  # ✅ Nowy klient
+
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "Identify named entities in the text."},
+                {"role": "system", "content": "Identify named entities in the following text."},
                 {"role": "user", "content": input_text}
-            ]
+            ],
+            max_tokens=500
         )
-        entities_info = response.choices[0]['message']['content'].strip().split(', ')
+
+        entities_info = response.choices[0].message.content.strip().split(', ')
         st.session_state['ner_results'] = entities_info
+
     except Exception as e:
         st.error(f"Failed to analyze text for entities: {e}")
         st.session_state['ner_results'] = []
+
 
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
     vectorizer = CountVectorizer(stop_words='english')
@@ -57,15 +65,20 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 
 def create_concept_map(input_text):
     try:
-        response = openai.ChatCompletion.create(
+        client = openai.OpenAI(api_key=st.session_state["openai_api_key"])  # ✅ Nowy klient
+
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
                 {"role": "user", "content": input_text}
-            ]
+            ],
+            max_tokens=500
         )
-        concept_relations = response.choices[0]['message']['content'].strip().split('. ')
+
+        concept_relations = response.choices[0].message.content.strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
+
     except Exception as e:
         st.error(f"Failed to create concept map: {e}")
         st.session_state['concept_relations'] = []
@@ -197,17 +210,18 @@ with col3:
 
         Generuj **kolejno każdy punkt**.
         """
+        
 
         for i in range(9):
             part = "Introduction" if i < 3 else "Middle" if i < 6 else "Conclusion"
             point_prompt = initial_prompt + f"\nGenerate point for: {part}. This should be concise."
 
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": point_prompt}]
             )
 
-            point_content = response.choices[0]['message']['content'].strip()
+            point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
             st.session_state["story_outline"].append(point_content)
             time.sleep(3)
 
@@ -223,6 +237,7 @@ with col3:
     if st.button("Zatwierdź i Generuj Opowieść"):
         st.info("Generowanie historii... Proszę czekać.")
 
+
         story_parts = []
         for j in range(0, len(st.session_state["story_outline"]), 3):
             current_plan_points = "\n".join(st.session_state["story_outline"][j:j + 3])
@@ -235,13 +250,13 @@ with col3:
             PLAN SEGMENT:
             """ + current_plan_points
 
-            response = openai.ChatCompletion.create(
+            response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                 model="gpt-3.5-turbo",
                 messages=[{"role": "user", "content": story_prompt}],
                 max_tokens=1500
             )
 
-            segment_content = response["choices"][0]["message"]["content"].strip()
+            segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
             story_parts.append(segment_content)
 
             time.sleep(3)
