@@ -219,15 +219,15 @@ with col3:
         initial_prompt = f"""
             Oto początek opowieści: {st.session_state["story_contents"]}
 
-        Na podstawie poniższego tekstu stwórz 9-punktowy plan kontynuacji opowieści.
+        Na podstawie poniższego tekstu stwórz 9-punktowy plan kontynuacji opowieści. Wszystko w języku tekstu przekazanego do analizy.
 
         Uwzględnione opcje: {additional_options}
 
         Generuj **kolejno każdy punkt**.
         """
         for i in range(9):
-            part = "Introduction" if i < 3 else "Middle" if i < 6 else "Conclusion"
-            point_prompt = initial_prompt + f"\nGenerate point for: {part}. This should be concise."
+            part = "Wprowadzenie" if i < 3 else "Rozwinięcie historii" if i < 6 else "Zakończenie"
+            point_prompt = initial_prompt + f"\nGenerate point for: {part}. Całość musi być logiczna, musi być zachowany ciąg przyczynowo skutkowy opowieści."
 
             # ✅ Sprawdzenie, czy `openai_client` istnieje
             if "openai_client" not in st.session_state:
