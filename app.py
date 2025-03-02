@@ -7,6 +7,14 @@ import networkx as nx
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import spacy
+import os
+
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    os.system("python -m spacy download en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 
 env = dotenv_values(".env")
 if "openai_api_key" not in st.session_state:
