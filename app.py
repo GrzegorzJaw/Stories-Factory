@@ -23,9 +23,6 @@ openai.api_key = st.session_state["openai_api_key"]
 
 st.title("Fabryka Niedokończonych Opowieści")
 
-nlp = spacy.blank("en")  # Używa pustego modelu, zamiast pobierać en_core_web_sm
-
-nlp.add_pipe("ner")
 
 token_cost_per_token = 0.0001
 budget_options = {
@@ -35,9 +32,13 @@ budget_options = {
 }
 
 def analyze_text_with_ner(input_text):
-    doc = nlp(input_text)
-    entities_info = [{'text': ent.text, 'label': ent.label_} for ent in doc.ents]
-    st.session_state['ner_results'] = entities_info
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "system", "content": "Extract named entities from the following text:"},
+                  {"role": "user", "content": input_text}]
+    )
+    st.session_state['ner_results'] = response["choices"][0]["message"]["content"]
+
 
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
     vectorizer = CountVectorizer(stop_words='english')
