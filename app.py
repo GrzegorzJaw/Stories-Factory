@@ -249,7 +249,6 @@ with col3:
                 )
 
                 point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
-                point_content = response.choices[0].message['content'].strip()
                 st.session_state["story_outline"].append(point_content)
 
             except Exception as e:
@@ -300,7 +299,6 @@ with col3:
                 )
 
                 segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
-                segment_content = response.choices[0].message['content'].strip()
                 story_parts.append(segment_content)
 
             except Exception as e:
