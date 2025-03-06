@@ -79,7 +79,7 @@ def create_concept_map(input_text):
 
         client = st.session_state["openai_client"]  # Pobranie klienta z sesji
 
-        response = client.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="o3-mini",
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
@@ -258,7 +258,7 @@ with col3:
 
     st.header("4. Wybierz Budżet Generowania Tekstu")
     selected_budget = st.radio("Wybierz poziom inwestycji", list(budget_options.keys()))
-    max_tokens = budget_options[selected_budget]
+    max_completion_tokens = budget_options[selected_budget]
     st.write(f"Wybrano budżet: {selected_budget}, maksymalna liczba tokenów: {max_tokens}")
 
     if st.button("Zatwierdź i Generuj Opowieść"):
