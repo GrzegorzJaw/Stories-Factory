@@ -261,7 +261,7 @@ with col3:
     st.header("4. Wybierz Budżet Generowania Tekstu")
     selected_budget = st.radio("Wybierz poziom inwestycji", list(budget_options.keys()))
     max_completion_tokens = budget_options[selected_budget]
-    st.write(f"Wybrano budżet: {selected_budget}, maksymalna liczba tokenów: {max_tokens}")
+    st.write(f"Wybrano budżet: {selected_budget}, maksymalna liczba tokenów: {max_completion_tokens}")
 
     if st.button("Zatwierdź i Generuj Opowieść"):
         st.info("Generowanie historii... Proszę czekać.")
