@@ -7,11 +7,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
 import os
 
-import streamlit as st
-from dotenv import dotenv_values
-import openai
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.decomposition import LatentDirichletAllocation
 
 # Wczytanie zmiennych środowiskowych
 env = dotenv_values(".env")
@@ -48,7 +43,7 @@ def analyze_text_with_ner(input_text):
         client = st.session_state["openai_client"]  # Pobranie klienta z sesji
 
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="o3-mini",  # Zmiana modelu na o3-mini
             messages=[
                 {"role": "system", "content": "Identify named entities in the following text."},
                 {"role": "user", "content": input_text}
@@ -62,6 +57,7 @@ def analyze_text_with_ner(input_text):
     except Exception as e:
         st.error(f"Failed to analyze text for entities: {e}")
         st.session_state['ner_results'] = []
+
 
 # ✅ Poprawiona funkcja analizy tematów
 def analyze_text_with_topic_modeling(input_text, num_topics=3):
@@ -83,15 +79,20 @@ def create_concept_map(input_text):
         client = st.session_state["openai_client"]  # Pobranie klienta z sesji
 
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="o3-mini",
+        response = openai.ChatCompletion.create(
+            model="o3-mini",
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
                 {"role": "user", "content": input_text}
             ],
             max_tokens=500
+            max_tokens=500,
+            temperature=0.8,
         )
 
         concept_relations = response.choices[0].message.content.strip().split('. ')
+        concept_relations = response.choices[0].message['content'].strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
 
     except Exception as e:
@@ -238,17 +239,24 @@ with col3:
 
             try:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                    model="gpt-3.5-turbo",
+                    model="o3-mini",
                     messages=[{"role": "user", "content": point_prompt}]
+                response = openai.ChatCompletion.create(
+                    model="o3-mini",
+                    messages=[{"role": "user", "content": point_prompt}],
+                    max_tokens=150,
+                    temperature=0.8,
                 )
 
                 point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
+                point_content = response.choices[0].message['content'].strip()
                 st.session_state["story_outline"].append(point_content)
 
             except Exception as e:
                 st.error(f"Błąd podczas generowania punktu {i+1}: {e}")
                 break  # Przerwij pętlę w razie błędu, by uniknąć dalszych problemów
 
+                break
             time.sleep(3)
 
         st.subheader("Plan Kontynuacji opowieści")
@@ -285,18 +293,24 @@ with col3:
 
             try:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                    model="gpt-3.5-turbo",
+                    model="o3-mini",
+                response = openai.ChatCompletion.create(
+                    model="o3-mini",
                     messages=[{"role": "user", "content": story_prompt}],
                     max_tokens=1500
+                    max_tokens=1500,
+                    temperature=0.8,
                 )
 
                 segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
+                segment_content = response.choices[0].message['content'].strip()
                 story_parts.append(segment_content)
 
             except Exception as e:
                 st.error(f"Błąd podczas generowania segmentu historii: {e}")
                 break  # Przerywamy pętlę w razie błędu, by uniknąć kolejnych błędnych wywołań
 
+                break
             time.sleep(3)
 
         story = "\n".join(story_parts)
@@ -306,5 +320,13 @@ with col3:
 
         buffer = BytesIO()
         buffer.write(story.encode("utf-8"))
+        buffer.seek(0)
+        st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
+
+                break
+        st.write(story)
+
+        buffer = BytesIO()
+
         buffer.seek(0)
         st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
