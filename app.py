@@ -48,7 +48,7 @@ def analyze_text_with_ner(input_text):
                 {"role": "system", "content": "Identify named entities in the following text."},
                 {"role": "user", "content": input_text}
             ],
-            max_tokens=500
+            max_completion_tokens=500
         )
 
         entities_info = response.choices[0].message.content.strip().split(', ')
@@ -85,7 +85,7 @@ def create_concept_map(input_text):
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
                 {"role": "user", "content": input_text}
             ],
-            max_tokens=500,
+            max_completion_tokens=500,
             temperature=0.8,
         )
         concept_relations = response.choices[0].message['content'].strip().split('. ')
@@ -237,7 +237,7 @@ with col3:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                     model="o3-mini",
                     messages=[{"role": "user", "content": point_prompt}],
-                    max_tokens=500,
+                    max_completion_tokens=500,
                     temperature=0.8,
                 )
 
@@ -288,7 +288,7 @@ with col3:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                     model="o3-mini",
                     messages=[{"role": "user", "content": story_prompt}],
-                    max_tokens=1500,
+                    max_completion_tokens=1500,
                     temperature=0.8,
                 )
 
