@@ -270,9 +270,19 @@ with col3:
 
 
 
-        st.subheader("Plan Kontynuacji opowieści")
+        st.subheader("Plan Kontynuacji Opowieści")
+
+        # ✅ Sprawdzenie, czy `story_outline` istnieje i nie jest puste
+        if not st.session_state.get("story_outline"):
+            st.session_state["story_outline"] = ["Brak danych do wyświetlenia"]
+
+        # ✅ Iteracja po wynikach, z unikalnym identyfikatorem `key`
         for i, point in enumerate(st.session_state["story_outline"]):
-            st.text_area(f"Punkt {i+1}", value=point, height=80)
+            st.text_area(f"Punkt {i+1}", value=point, height=80, key=f"story_point_{i}")
+
+        # ✅ Debugowanie, jeśli problem nadal występuje
+        st.write("Debugging story_outline:", st.session_state["story_outline"])
+
 
     st.header("4. Wybierz Budżet Generowania Tekstu")
     selected_budget = st.radio("Wybierz poziom inwestycji", list(budget_options.keys()))
