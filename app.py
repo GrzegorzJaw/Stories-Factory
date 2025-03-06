@@ -220,43 +220,55 @@ with col3:
             "Świat oparty na nowej technologii lub magii" if option5_5 else ""
         ]))
 
-        initial_prompt = f"""
+        # ✅ Jeden request do API zamiast pętli!
+        full_prompt = f"""
             Oto początek opowieści: {st.session_state["story_contents"]}
 
-        Na podstawie poniższego tekstu stwórz 9-punktowy plan kontynuacji opowieści. Wszystko w języku tekstu przekazanego do analizy.
+            Na podstawie analizy tekstu:
+            - **Rozpoznane byty NER**: {ner_summary}
+            - **Tematy tekstu**: {topics_summary}
+            - **Kluczowe pojęcia i relacje**: {concept_summary}
 
-        Uwzględnione opcje: {additional_options}
+            Uwzględnione opcje narracyjne: {additional_options}
 
-        Generuj **kolejno każdy punkt**.
+            Na tej podstawie **wygeneruj szczegółowy 9-punktowy plan kontynuacji opowieści**.
+            Każdy punkt powinien być rozwinięty, uwzględniać spójność fabularną i logiczny ciąg przyczynowo-skutkowy.
+            Struktura planu:
+            1. Wprowadzenie - przedstawienie dalszej części świata i postaci
+            2. Wprowadzenie - rozwinięcie tła i ekspozycja fabularna
+            3. Wprowadzenie - zawiązanie akcji i pierwszy konflikt
+            4. Rozwinięcie - eskalacja problemów i decyzji bohaterów
+            5. Rozwinięcie - pojawienie się nieoczekiwanych zwrotów akcji
+            6. Rozwinięcie - kulminacja głównego wątku
+            7. Zakończenie - początek rozwiązania fabularnego
+            8. Zakończenie - finalne wybory bohaterów i konsekwencje
+            9. Zakończenie - ostateczne domknięcie historii lub otwarte zakończenie
         """
-        for i in range(9):
-            part = "Wprowadzenie" if i < 3 else "Rozwinięcie historii" if i < 6 else "Zakończenie"
-            point_prompt = initial_prompt + f"\nGenerate point for: {part}. Całość musi być logiczna, musi być zachowany ciąg przyczynowo skutkowy opowieści."
 
-            # ✅ Sprawdzenie, czy `openai_client` istnieje
-            if "openai_client" not in st.session_state:
-                st.error("Błąd: Klient OpenAI nie został poprawnie zainicjalizowany.")
-                break  # Przerwij pętlę, jeśli klient nie istnieje
+        # ✅ Wysłanie jednego żądania zamiast 9 osobnych
+        client = st.session_state["openai_client"]
 
-            client = st.session_state["openai_client"]
+        try:
+            response = client.chat.completions.create(
+                model="o3-mini",
+                messages=[{"role": "user", "content": full_prompt}],
+                max_completion_tokens=1500,
+                reasoning_effort="medium"  # ✅ Medium = szybsze generowanie
+            )
 
-            try:
-                response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                    model="o3-mini",
-                    messages=[{"role": "user", "content": point_prompt}],
-                    max_completion_tokens=500,
-                    reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
-                )
+            # ✅ Pobranie odpowiedzi i podział na punkty
+            plan_text = response.choices[0].message.content.strip()
+            st.session_state["story_outline"] = plan_text.split("\n")
 
-                point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
-                st.session_state["story_outline"].append(point_content)
+            # ✅ Wyświetlenie planu
+            st.subheader("Plan Kontynuacji Opowieści")
+            for i, point in enumerate(st.session_state["story_outline"]):
+                st.text_area(f"Punkt {i+1}", value=point, height=80)
 
-            except Exception as e:
-                st.error(f"Błąd podczas generowania punktu {i+1}: {e}")
-                break  # Przerwij pętlę w razie błędu, by uniknąć dalszych problemów
+        except Exception as e:
+            st.error(f"Błąd podczas generowania planu: {e}")
 
-                break
-            time.sleep(3)
+
 
         st.subheader("Plan Kontynuacji opowieści")
         for i, point in enumerate(st.session_state["story_outline"]):
