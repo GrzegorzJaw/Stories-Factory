@@ -76,9 +76,10 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 # ✅ Poprawiona funkcja tworzenia mapy koncepcyjnej
 def create_concept_map(input_text):
     try:
+
         client = st.session_state["openai_client"]  # Pobranie klienta z sesji
 
-        response = openai.ChatCompletion.create(
+        response = client.ChatCompletion.create(
             model="o3-mini",
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
@@ -236,9 +237,6 @@ with col3:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                     model="o3-mini",
                     messages=[{"role": "user", "content": point_prompt}],
-                response = openai.ChatCompletion.create(
-                    model="o3-mini",
-                    messages=[{"role": "user", "content": point_prompt}],
                     max_tokens=500,
                     temperature=0.8,
                 )
@@ -288,8 +286,6 @@ with col3:
 
             try:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                    model="o3-mini",
-                response = openai.ChatCompletion.create(
                     model="o3-mini",
                     messages=[{"role": "user", "content": story_prompt}],
                     max_tokens=1500,
