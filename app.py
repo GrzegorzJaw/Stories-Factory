@@ -5,7 +5,7 @@ from io import BytesIO
 import time
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import LatentDirichletAllocation
-import os
+
 
 
 # Wczytanie zmiennych środowiskowych
@@ -30,7 +30,6 @@ if "openai_client" not in st.session_state:
 
 st.title("Fabryka Niedokończonych Opowieści")
 
-token_cost_per_token = 0.0001
 budget_options = {
     "Tekst do 5 PLN": 25000,
     "Tekst do 10 PLN": 50000,
@@ -48,7 +47,8 @@ def analyze_text_with_ner(input_text):
                 {"role": "system", "content": "Identify named entities in the following text."},
                 {"role": "user", "content": input_text}
             ],
-            max_tokens=500
+            max_tokens=500,
+            temperature=0.8,
         )
 
         entities_info = response.choices[0].message.content.strip().split(', ')
@@ -312,11 +312,5 @@ with col3:
         buffer.write(story.encode("utf-8"))
         buffer.seek(0)
         st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
-
-                break
-        st.write(story)
-
-        buffer = BytesIO()
-
-        buffer.seek(0)
-        st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
+        
+       
