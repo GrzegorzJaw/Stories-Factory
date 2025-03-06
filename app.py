@@ -39,21 +39,17 @@ budget_options = {
 # ✅ Poprawiona funkcja analizy NER
 def analyze_text_with_ner(input_text):
     try:
-        client = st.session_state["openai_client"]  # Pobranie klienta z sesji
-
-        response = client.chat.completions.create(
-            model="o3-mini",  # Zmiana modelu na o3-mini
+        response = openai.ChatCompletion.create(
+            model="o3-mini",  # Example placeholder
             messages=[
-                {"role": "system", "content": "Identify named entities in the following text."},
+                {"role": "system", "content": "Identify named entities in the text."},
                 {"role": "user", "content": input_text}
             ],
             max_tokens=500,
-            temperature=0.8,
+            temperature=0.8,  # Simulated reasoning effort
         )
-
-        entities_info = response.choices[0].message.content.strip().split(', ')
+        entities_info = response.choices[0]['message']['content'].strip().split(', ')
         st.session_state['ner_results'] = entities_info
-
     except Exception as e:
         st.error(f"Failed to analyze text for entities: {e}")
         st.session_state['ner_results'] = []
@@ -76,21 +72,17 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 # ✅ Poprawiona funkcja tworzenia mapy koncepcyjnej
 def create_concept_map(input_text):
     try:
-
-        client = st.session_state["openai_client"]  # Pobranie klienta z sesji
-
-        response = client.ChatCompletion.create(
-            model="o3-mini",
+        response = openai.ChatCompletion.create(
+            model="o3-mini",  # Example placeholder
             messages=[
                 {"role": "system", "content": "Analyze relationships and conceptual connections in the text."},
                 {"role": "user", "content": input_text}
             ],
             max_tokens=500,
-            temperature=0.8,
+            temperature=0.8,  # Simulated reasoning effort
         )
-        concept_relations = response.choices[0].message['content'].strip().split('. ')
+        concept_relations = response.choices[0]['message']['content'].strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
-
     except Exception as e:
         st.error(f"Failed to create concept map: {e}")
         st.session_state['concept_relations'] = []
@@ -234,21 +226,16 @@ with col3:
             client = st.session_state["openai_client"]
 
             try:
-                response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                    model="o3-mini",
+                response = openai.ChatCompletion.create(
+                    model="o3-mini",  # Example placeholder
                     messages=[{"role": "user", "content": point_prompt}],
-                    max_tokens=500,
+                    max_tokens=150,
                     temperature=0.8,
                 )
-
-                point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
-                point_content = response.choices[0].message['content'].strip()
+                point_content = response.choices[0]['message']['content'].strip()
                 st.session_state["story_outline"].append(point_content)
-
             except Exception as e:
                 st.error(f"Błąd podczas generowania punktu {i+1}: {e}")
-                break  # Przerwij pętlę w razie błędu, by uniknąć dalszych problemów
-
                 break
             time.sleep(3)
 
@@ -285,21 +272,16 @@ with col3:
             client = st.session_state["openai_client"]
 
             try:
-                response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
-                    model="o3-mini",
+                response = openai.ChatCompletion.create(
+                    model="o3-mini",  # Example placeholder
                     messages=[{"role": "user", "content": story_prompt}],
                     max_tokens=1500,
                     temperature=0.8,
                 )
-
-                segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
-                segment_content = response.choices[0].message['content'].strip()
+                segment_content = response.choices[0]['message']['content'].strip()
                 story_parts.append(segment_content)
-
             except Exception as e:
                 st.error(f"Błąd podczas generowania segmentu historii: {e}")
-                break  # Przerywamy pętlę w razie błędu, by uniknąć kolejnych błędnych wywołań
-
                 break
             time.sleep(3)
 
