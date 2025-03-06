@@ -235,7 +235,7 @@ with col3:
             try:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                     model="o3-mini",
-                    messages=[{"role": "user", "content": point_prompt}]
+                    messages=[{"role": "user", "content": point_prompt}],
                 response = openai.ChatCompletion.create(
                     model="o3-mini",
                     messages=[{"role": "user", "content": point_prompt}],
