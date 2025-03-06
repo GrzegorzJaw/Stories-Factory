@@ -89,8 +89,13 @@ def create_concept_map(input_text):
             reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
         )
 
-        # ✅ Prawidłowy sposób pobrania tekstu z odpowiedzi
-        concept_relations = response.choices[0].message.content.strip().split('. ')
+        # ✅ Poprawny sposób dostępu do treści odpowiedzi
+        concept_map_text = response.choices[0].message.content.strip()
+
+        # Podział tekstu na punkty (np. lista zdań)
+        concept_relations = concept_map_text.split('. ')
+
+        # Zapisanie w stanie sesji Streamlit
         st.session_state['concept_relations'] = concept_relations
 
     except Exception as e:
