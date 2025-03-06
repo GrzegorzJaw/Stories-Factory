@@ -48,7 +48,8 @@ def analyze_text_with_ner(input_text):
                 {"role": "system", "content": "Identify named entities in the following text."},
                 {"role": "user", "content": input_text}
             ],
-            max_completion_tokens=500
+            max_completion_tokens=500,
+            reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
         )
 
         entities_info = response.choices[0].message.content.strip().split(', ')
@@ -86,7 +87,7 @@ def create_concept_map(input_text):
                 {"role": "user", "content": input_text}
             ],
             max_completion_tokens=500,
-            temperature=0.8,
+            reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
         )
         concept_relations = response.choices[0].message['content'].strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
@@ -238,7 +239,7 @@ with col3:
                     model="o3-mini",
                     messages=[{"role": "user", "content": point_prompt}],
                     max_completion_tokens=500,
-                    temperature=0.8,
+                    reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
                 )
 
                 point_content = response.choices[0].message.content.strip()  # ✅ Poprawiony dostęp do odpowiedzi
@@ -289,7 +290,7 @@ with col3:
                     model="o3-mini",
                     messages=[{"role": "user", "content": story_prompt}],
                     max_completion_tokens=1500,
-                    temperature=0.8,
+                    reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
                 )
 
                 segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
