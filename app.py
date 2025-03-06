@@ -77,8 +77,7 @@ def analyze_text_with_topic_modeling(input_text, num_topics=3):
 # ✅ Poprawiona funkcja tworzenia mapy koncepcyjnej
 def create_concept_map(input_text):
     try:
-
-        client = st.session_state["openai_client"]  # Pobranie klienta z sesji
+        client = st.session_state["openai_client"]  # Pobranie klienta OpenAI z sesji
 
         response = client.chat.completions.create(
             model="o3-mini",
@@ -89,7 +88,9 @@ def create_concept_map(input_text):
             max_completion_tokens=500,
             reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
         )
-        concept_relations = response.choices[0].message['content'].strip().split('. ')
+
+        # ✅ Prawidłowy sposób pobrania tekstu z odpowiedzi
+        concept_relations = response.choices[0].message.content.strip().split('. ')
         st.session_state['concept_relations'] = concept_relations
 
     except Exception as e:
