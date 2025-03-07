@@ -289,7 +289,7 @@ with col3:
             response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                     model="o3-mini",
                     messages=[{"role": "user", "content": complete_story_prompt}],
-                    max_completion_tokens=1500,
+                    max_completion_tokens=3000,
                     reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
                 )
 
