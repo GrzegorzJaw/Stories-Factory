@@ -273,13 +273,20 @@ with col3:
         st.info("Generowanie historii... Proszę czekać.")
         
         complete_story_prompt = f"""
-        Oto początek historii, który użytkownik podał do analizy:
-        {st.session_state["story_contents"]}
+        Twoim zadaniem jest kontynuacja opowieści w zgodzie z analizą tekstu. 
+        - Zachowaj styl, bohaterów i świat przedstawiony w historii.
+        - Używaj logicznych przejść między wydarzeniami.
+        - Upewnij się, że fabuła ma sens i prowadzi do logicznego zakończenia.
 
-        Na bazie poniższego planu, wygeneruj pełną opowieść w formie narracyjnej z dialogami:
-        {' '.join(st.session_state['story_outline'])}
-        
-        Uwzględnij opcje narracyjne oraz wyniki analizy, tworząc logiczną i spójną kontynuację w odpowiadającym stylu.
+        Oto szczegółowy plan kontynuacji:
+        {st.session_state.get("story_outline", "Brak planu")}
+
+        Oto analiza treści:
+        NER: {st.session_state.get("ner_results", "Brak analizy")}
+        Tematy główne: {st.session_state.get("topic_results", "Brak analizy")}
+        Mapa pojęć: {st.session_state.get("concept_relations", "Brak analizy")}
+
+        Rozpocznij kontynuację opowieści na podstawie powyższych informacji.
         """
 
         try:
