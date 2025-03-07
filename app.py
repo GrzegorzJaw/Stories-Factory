@@ -245,10 +245,9 @@ with col3:
             9. Zakończenie - ostateczne domknięcie historii lub otwarte zakończenie
         """
 
-        # ✅ Wysłanie jednego żądania zamiast 9 osobnych
-        client = st.session_state["openai_client"]
-
         try:
+            client = st.session_state["openai_client"]  # Pobranie klienta z sesji
+            
             response = client.chat.completions.create(
                 model="o3-mini",
                 messages=[{"role": "user", "content": full_prompt}],
@@ -256,33 +255,15 @@ with col3:
                 reasoning_effort="medium"  # ✅ Medium = szybsze generowanie
             )
 
-            # ✅ Pobranie odpowiedzi i podział na punkty
-            plan_text = response.choices[0].message.content.strip()
-            st.session_state["story_outline"] = plan_text.split("\n")
+            plan_text = response.choices[0]['message']['content'].strip()
+            st.session_state["story_outline"] = plan_text.split('\n', 9)
 
-            # ✅ Wyświetlenie planu
             st.subheader("Plan Kontynuacji Opowieści")
             for i, point in enumerate(st.session_state["story_outline"]):
                 st.text_area(f"Punkt {i+1}", value=point, height=80)
 
         except Exception as e:
             st.error(f"Błąd podczas generowania planu: {e}")
-
-
-
-        st.subheader("Plan Kontynuacji Opowieści")
-
-        # ✅ Sprawdzenie, czy `story_outline` istnieje i nie jest puste
-        if not st.session_state.get("story_outline"):
-            st.session_state["story_outline"] = ["Brak danych do wyświetlenia"]
-
-        # ✅ Iteracja po wynikach, z unikalnym identyfikatorem `key`
-        for i, point in enumerate(st.session_state["story_outline"]):
-            st.text_area(f"Punkt {i+1}", value=point, height=80, key=f"story_point_{i}")
-
-        # ✅ Debugowanie, jeśli problem nadal występuje
-        st.write("Debugging story_outline:", st.session_state["story_outline"])
-
 
     st.header("4. Wybierz Budżet Generowania Tekstu")
     selected_budget = st.radio("Wybierz poziom inwestycji", list(budget_options.keys()))
@@ -291,26 +272,15 @@ with col3:
 
     if st.button("Zatwierdź i Generuj Opowieść"):
         st.info("Generowanie historii... Proszę czekać.")
-
         story_parts = []
-
         for j in range(0, len(st.session_state["story_outline"]), 3):
             current_plan_points = "\n".join(st.session_state["story_outline"][j:j + 3])
 
             story_prompt = f"""
             Oto początek historii, który użytkownik podał do analizy:
             {st.session_state["story_contents"]}
-
-            Na podstawie 9-punktowego planu kontynuuj opowieść w formie podobnej do formy tekstu początkowego, uwzględniając styl pisarski.
             PLAN SEGMENT:
             """ + current_plan_points
-
-            # ✅ Pobranie klienta z sesji (upewniamy się, że istnieje)
-            if "openai_client" not in st.session_state:
-                st.error("Błąd: Klient OpenAI nie został poprawnie zainicjalizowany.")
-                break  # Przerwij pętlę, jeśli klient nie istnieje
-
-            client = st.session_state["openai_client"]
 
             try:
                 response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
@@ -322,16 +292,12 @@ with col3:
 
                 segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
                 story_parts.append(segment_content)
-
             except Exception as e:
                 st.error(f"Błąd podczas generowania segmentu historii: {e}")
-                break  # Przerywamy pętlę w razie błędu, by uniknąć kolejnych błędnych wywołań
-
                 break
             time.sleep(3)
 
         story = "\n".join(story_parts)
-
         st.subheader("Wygenerowana Opowieść:")
         st.write(story)
 
@@ -339,5 +305,3 @@ with col3:
         buffer.write(story.encode("utf-8"))
         buffer.seek(0)
         st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
-        
-       
