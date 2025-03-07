@@ -224,12 +224,11 @@ with col3:
         full_prompt = f"""
             Oto początek opowieści: {st.session_state["story_contents"]}
 
-            Na podstawie analizy tekstu:
-            - **Rozpoznane byty NER**: {ner_summary}
-            - **Tematy tekstu**: {topics_summary}
-            - **Kluczowe pojęcia i relacje**: {concept_summary}
-
-            Uwzględnione opcje narracyjne: {additional_options}
+            Analiza:
+            - Rozpoznane byty NER: {ner_summary}
+            - Tematy tekstu: {topics_summary}
+            - Kluczowe pojęcia i relacje: {concept_summary}
+            - Uwzględnione opcje narracyjne: {additional_options}
 
             Na tej podstawie **wygeneruj szczegółowy 9-punktowy plan kontynuacji opowieści**.
             Każdy punkt powinien być rozwinięty, uwzględniać spójność fabularną i logiczny ciąg przyczynowo-skutkowy.
@@ -272,36 +271,36 @@ with col3:
 
     if st.button("Zatwierdź i Generuj Opowieść"):
         st.info("Generowanie historii... Proszę czekać.")
-        story_parts = []
-        for j in range(0, len(st.session_state["story_outline"]), 3):
-            current_plan_points = "\n".join(st.session_state["story_outline"][j:j + 3])
+        
+        complete_story_prompt = f"""
+        Oto początek historii, który użytkownik podał do analizy:
+        {st.session_state["story_contents"]}
 
-            story_prompt = f"""
-            Oto początek historii, który użytkownik podał do analizy:
-            {st.session_state["story_contents"]}
-            PLAN SEGMENT:
-            """ + current_plan_points
+        Na bazie poniższego planu, wygeneruj pełną opowieść w formie narracyjnej z dialogami:
+        {' '.join(st.session_state['story_outline'])}
+        
+        Uwzględnij opcje narracyjne oraz wyniki analizy, tworząc logiczną i spójną kontynuację w odpowiadającym stylu.
+        """
 
-            try:
-                response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
+        try:
+
+            client = st.session_state["openai_client"]  # Pobranie klienta z sesji
+
+            response = client.chat.completions.create(  # ✅ Poprawione API OpenAI v1.0+
                     model="o3-mini",
-                    messages=[{"role": "user", "content": story_prompt}],
+                    messages=[{"role": "user", "content": complete_story_prompt}],
                     max_completion_tokens=1500,
                     reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
                 )
 
-                segment_content = response.choices[0].message.content.strip()  # ✅ Poprawiona metoda dostępu do odpowiedzi
-                story_parts.append(segment_content)
-            except Exception as e:
-                st.error(f"Błąd podczas generowania segmentu historii: {e}")
-                break
-            time.sleep(3)
+            story = response.choices[0].message.content.strip()
+            st.subheader("Wygenerowana Opowieść:")
+            st.write(story)
 
-        story = "\n".join(story_parts)
-        st.subheader("Wygenerowana Opowieść:")
-        st.write(story)
+            buffer = BytesIO()
+            buffer.write(story.encode("utf-8"))
+            buffer.seek(0)
+            st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
 
-        buffer = BytesIO()
-        buffer.write(story.encode("utf-8"))
-        buffer.seek(0)
-        st.download_button("Pobierz opowieść", data=buffer, file_name="historia.txt", mime="text/plain", key="download_story")
+        except Exception as e:
+            st.error(f"Błąd podczas generowania historii: {e}")
