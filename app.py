@@ -258,15 +258,17 @@ with col3:
             st.session_state["story_outline"] = plan_text.split('\n')[:9]
 
             # Display and edit outline
-            st.subheader("Plan Kontynuacji Opowieści")
-            edited_outline = []
+            st.subheader("Plan Opowieści")
 
-            for i, point in enumerate(st.session_state["story_outline"]):
-                edited_outline.append(st.text_area(f"Punkt {i+1}", value=point, height=80))
+            if "edited_outline" not in st.session_state:
+                st.session_state["edited_outline"] = st.session_state["story_outline"]
 
-            # Store modified outline only after user approval
+            for i, point in enumerate(st.session_state["edited_outline"]):
+                st.session_state["edited_outline"][i] = st.text_area(f"Punkt {i+1}", value=point, height=80, key=f"outline_{i}")
+
+            # Approval button
             if st.button("Zatwierdź i Przejdź do Generowania"):
-                st.session_state["story_outline"] = edited_outline
+                st.session_state["story_outline"] = st.session_state["edited_outline"]
                 st.session_state["outline_approved"] = True
                 st.success("Plan opowieści został zatwierdzony. Możesz teraz rozpocząć generowanie opowieści.")
 
