@@ -257,9 +257,18 @@ with col3:
             plan_text = response.choices[0].message.content.strip()
             st.session_state["story_outline"] = plan_text.split('\n')[:9]
 
+            # Display and edit outline
             st.subheader("Plan Kontynuacji Opowieści")
+            edited_outline = []
+
             for i, point in enumerate(st.session_state["story_outline"]):
-                st.text_area(f"Punkt {i+1}", value=point, height=80)
+                edited_outline.append(st.text_area(f"Punkt {i+1}", value=point, height=80))
+
+            # Store modified outline only after user approval
+            if st.button("Zatwierdź i Przejdź do Generowania"):
+                st.session_state["story_outline"] = edited_outline
+                st.session_state["outline_approved"] = True
+                st.success("Plan opowieści został zatwierdzony. Możesz teraz rozpocząć generowanie opowieści.")
 
         except Exception as e:
             st.error(f"Błąd podczas generowania planu: {e}")
