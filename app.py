@@ -254,8 +254,8 @@ with col3:
                 reasoning_effort="medium"  # ✅ Medium = szybsze generowanie
             )
 
-            plan_text = response.choices[0]['message']['content'].strip()
-            st.session_state["story_outline"] = plan_text.split('\n', 9)
+            plan_text = response.choices[0].message.content.strip()
+            st.session_state["story_outline"] = plan_text.split('\n')[:9]
 
             st.subheader("Plan Kontynuacji Opowieści")
             for i, point in enumerate(st.session_state["story_outline"]):
