@@ -293,7 +293,14 @@ with col3:
                     reasoning_effort="high"  # Możliwe wartości: "low", "medium", "high"
                 )
 
-            story = response.choices[0].message.content.strip()
+            if response and hasattr(response, "choices") and len(response.choices) > 0:
+                story = response.choices[0].message.content.strip()
+                if not story:
+                    st.error("Otrzymano pustą odpowiedź od OpenAI.")
+            else:
+                st.error("Nie udało się wygenerować odpowiedzi od OpenAI.")
+                story = "Błąd generowania opowieści."
+
             st.subheader("Wygenerowana Opowieść:")
             st.write(story)
 
