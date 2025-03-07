@@ -185,6 +185,7 @@ with col2:
 
 with col3:
     st.header("Tworzenie planu kontynuacji opowieści")
+    
 
     if st.button("Generuj Plan"):
         st.info("Generowanie planu...")
@@ -254,26 +255,24 @@ with col3:
                 reasoning_effort="medium"  # ✅ Medium = szybsze generowanie
             )
 
-            plan_text = response.choices[0].message.content.strip()
-            st.session_state["story_outline"] = plan_text.split('\n')[:9]
+            st.session_state["story_outline"] = response.choices[0].message.content.strip()
 
-            # Display and edit outline
+            # Wyświetlanie planu jako jedno pole tekstowe
             st.subheader("Plan Opowieści")
+            st.session_state["story_outline"] = st.text_area(
+                "Edytuj Plan Opowieści", 
+                value=st.session_state["story_outline"], 
+                height=400
+            )
 
-            if "edited_outline" not in st.session_state:
-                st.session_state["edited_outline"] = st.session_state["story_outline"]
-
-            for i, point in enumerate(st.session_state["edited_outline"]):
-                st.session_state["edited_outline"][i] = st.text_area(f"Punkt {i+1}", value=point, height=80, key=f"outline_{i}")
-
-            # Approval button
+            # Zatwierdzenie planu
             if st.button("Zatwierdź i Przejdź do Generowania"):
-                st.session_state["story_outline"] = st.session_state["edited_outline"]
-                st.session_state["outline_approved"] = True
-                st.success("Plan opowieści został zatwierdzony. Możesz teraz rozpocząć generowanie opowieści.")
+               st.session_state["outline_approved"] = True
+               st.success("Plan opowieści został zatwierdzony. Możesz teraz rozpocząć generowanie opowieści.")
 
         except Exception as e:
             st.error(f"Błąd podczas generowania planu: {e}")
+
 
     st.header("4. Wybierz Budżet Generowania Tekstu")
     selected_budget = st.radio("Wybierz poziom inwestycji", list(budget_options.keys()))
